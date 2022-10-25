@@ -31,3 +31,5 @@ generated-cra-app
 .cra-template-rb
 template
 .eslintcache
+dist
+dts
