@@ -16,9 +16,11 @@
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "strictNullChecks": true,
+    "typeRoots" : ["node_modules/@types", "./fonts.d.ts"]
   },
-  "include": ["src"],
+  "include": ["src", "src/**/*", "./fonts.d.ts"],
   "ts-node": {
     "compilerOptions": {
       "esModuleInterop": true,

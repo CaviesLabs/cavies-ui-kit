@@ -5,7 +5,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'sanitize.css/sanitize.css';
 
-import App from './app';
+import { ThemeProvider, Button } from './lib.entrypoint';
 
 import reportWebVitals from 'reportWebVitals';
 
@@ -15,7 +15,15 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <div style={{ width: '300px' }}>
+        <Button
+          text="Button"
+          type="submit"
+          containerStyle={{ width: '100%' }}
+        />
+      </div>
+    </ThemeProvider>
   </React.StrictMode>,
 );
 
