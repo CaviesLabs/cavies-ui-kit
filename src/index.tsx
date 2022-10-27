@@ -20,6 +20,7 @@ root.render(
         <Button
           text="Button"
           type="submit"
+          shape="primary"
           containerStyle={{ width: '100%' }}
         />
       </div>

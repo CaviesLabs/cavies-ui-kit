@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
 import { tuple } from '../../utils';
+import { StyleColors } from '../../styles/style-constants';
 
 /** @dev Shape of button */
 const ButtonShapes = tuple('primary', 'secondary', 'tertiary');
@@ -26,18 +27,18 @@ const whenDisabled = (c_val: string, i_val: string) => {
 /** @dev Render button's background */
 const background = () => (props: Props) => {
   if (props.shape === 'primary') {
-    return props.disabled ? '#96A1B5' : '#735cf7';
+    return props.disabled ? StyleColors.dark[40] : StyleColors.primary.purple;
   } else if (props.shape === 'secondary') {
-    return '#FFFFFF';
+    return StyleColors.white;
   }
 };
 
 /** @dev Render button's text color */
 const textColor = () => (props: Props) => {
   if (props.shape === 'primary') {
-    return '#FFFFFF';
+    return StyleColors.white;
   } else if (props.shape === 'secondary') {
-    return props.disabled ? '#96A1B5' : '#735CF7';
+    return props.disabled ? StyleColors.dark[40] : StyleColors.primary.purple;
   }
 };
 
@@ -46,16 +47,18 @@ const border = () => (props: Props) => {
   if (props.shape === 'primary') {
     return 'none';
   } else if (props.shape === 'secondary') {
-    return props.disabled ? '1px solid #96A1B5' : '1px solid #735CF7';
+    return props.disabled
+      ? `1px solid ${StyleColors.dark[40]}`
+      : `1px solid ${StyleColors.primary.purple}`;
   }
 };
 
 /** @dev Render wave effect color */
 const waveColor = () => (props: Props) => {
   if (props.shape === 'primary') {
-    return '#8876f0';
+    return StyleColors.secondary.purple[50];
   } else if (props.shape === 'secondary') {
-    return '#735CF7';
+    return StyleColors.primary.purple;
   }
 };
 

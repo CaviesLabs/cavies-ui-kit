@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { StyleConstants } from './StyleConstants';
+import { StyleConstants } from './style-constants';
 import MediumFont from '../assets/poppins/Poppins-Medium.otf';
 
 /* istanbul ignore next */
