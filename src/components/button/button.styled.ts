@@ -1,75 +1,90 @@
 import styled from 'styled-components';
-import { DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
-import { tuple } from '../../utils';
 import { StyleColors } from '../../styles/style-constants';
-
-/** @dev Shape of button */
-const ButtonShapes = tuple('primary', 'secondary', 'tertiary');
-export type ButtonShape = typeof ButtonShapes[number];
-
-/** @dev Html button type, this is native HTML button type */
-const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
-export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
-
-/** @dev Export interface props */
-export type Props = DetailedHTMLProps<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
-> & { shape?: ButtonShape | ButtonShape[0] };
+import { StyledButtonProps } from './types';
 
 /** @dev This helper will used for render value base on disabled value  */
-const whenDisabled = (c_val: string, i_val: string) => {
-  return (props: Props) => {
-    return props.disabled ? c_val : i_val;
-  };
+const whenDisabled = (
+  props: StyledButtonProps,
+  c_val: string,
+  i_val: string,
+) => {
+  return props.disabled ? c_val : i_val;
 };
 
-/** @dev Render button's background */
-const background = () => (props: Props) => {
-  if (props.shape === 'primary') {
-    return props.disabled ? StyleColors.dark[40] : StyleColors.primary.purple;
-  } else if (props.shape === 'secondary') {
-    return StyleColors.white;
+/**
+ * @dev Render styles following shape type of component
+ * @dev Render styles for primary shape
+ * @dev Render styles for secondary shape
+ * @param props
+ * @returns style
+ */
+const withShape = (props: StyledButtonProps) => {
+  const { shape } = props;
+  if (shape === 'secondary') {
+    return `
+      border: 1px solid ${whenDisabled(
+        props,
+        StyleColors.dark[40],
+        StyleColors.primary.purple,
+      )};
+      color: ${whenDisabled(
+        props,
+        StyleColors.dark[40],
+        StyleColors.primary.purple,
+      )};
+      background: ${StyleColors.white};
+      &:after {
+        background: ${StyleColors.primary.purple};
+      }
+    `;
   }
+
+  return `
+    border: none;
+    color: ${StyleColors.white};
+    background: ${
+      props.disabled ? StyleColors.dark[40] : StyleColors.primary.purple
+    };
+    &:after {
+      background: ${StyleColors.secondary.purple[50]};
+    };
+`;
 };
 
-/** @dev Render button's text color */
-const textColor = () => (props: Props) => {
-  if (props.shape === 'primary') {
-    return StyleColors.white;
-  } else if (props.shape === 'secondary') {
-    return props.disabled ? StyleColors.dark[40] : StyleColors.primary.purple;
+/**
+ * @dev Render styles following size of component
+ * @dev Render styles for large size
+ * @dev Render styles for medium size
+ * @dev Render styles for smallsize
+ * @param props
+ * @returns style
+ */
+const withSize = (props: StyledButtonProps) => {
+  const { size } = props;
+  if (size === 'large') {
+    return `
+      font-size: 16px;
+      padding: 14px 16px;
+    `;
+  } else if (size === 'small') {
+    return `
+      font-size: 14px;
+      padding: 12px 5px;
+    `;
   }
+
+  return `
+    font-size: 16px;
+    padding: 12px 16px;
+  `;
 };
 
-/** @dev Render button's border */
-const border = () => (props: Props) => {
-  if (props.shape === 'primary') {
-    return 'none';
-  } else if (props.shape === 'secondary') {
-    return props.disabled
-      ? `1px solid ${StyleColors.dark[40]}`
-      : `1px solid ${StyleColors.primary.purple}`;
-  }
-};
-
-/** @dev Render wave effect color */
-const waveColor = () => (props: Props) => {
-  if (props.shape === 'primary') {
-    return StyleColors.secondary.purple[50];
-  } else if (props.shape === 'secondary') {
-    return StyleColors.primary.purple;
-  }
-};
-
-export const StyledButton = styled.button<Props>`
-  cursor: ${whenDisabled('', 'pointer')};
-  background: ${background()};
-  color: ${textColor()};
-  border: ${border()};
-  padding: 15px 16px;
+/**
+ * @dev Style component
+ */
+export const StyledButton = styled.button<StyledButtonProps>`
+  cursor: ${props => whenDisabled(props, '', 'pointer')};
   display: inline-block;
-  font-size: 16px;
   border-radius: 4px;
   margin-left: 20px;
   font-family: hk-font-medium;
@@ -86,7 +101,6 @@ export const StyledButton = styled.button<Props>`
     left: 0;
     width: 0;
     height: 100%;
-    background: ${waveColor()};
     transition: all 0.35s;
     border-radius: 4px;
   }
@@ -94,6 +108,125 @@ export const StyledButton = styled.button<Props>`
     color: #ffffff;
   }
   &:hover:after {
-    width: ${whenDisabled('0%', '100%')};
+    width: ${props => whenDisabled(props, '0%', '100%')};
+  }
+
+  ${withShape}
+  ${withSize}
+
+  .circle {
+    height: 25px;
+    width: 25px;
+    background-color: rgba(255, 255, 255);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+    transform: scale(0);
+  }
+
+  @keyframes grow {
+    0% {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1);
+      z-index: 2;
+    }
+
+    100% {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(30);
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  .grow {
+    animation: grow 1.4s ease-out forwards;
+  }
+
+  .shrink {
+    animation: shrink 0.3s forwards alternate;
+  }
+
+  .jiggle {
+    animation: jiggle 3s forwards ease-in-out;
+  }
+
+  @keyframes shrink {
+    0% {
+    }
+
+    100% {
+      transform: scale(0.9);
+    }
+  }
+
+  @keyframes jiggle {
+    0% {
+      transform: scale(0.9);
+    }
+
+    10% {
+      transform: scale(1.1);
+    }
+
+    20% {
+      transform: scale(0.9);
+    }
+
+    30% {
+      transform: scale(1.05);
+    }
+
+    40% {
+      transform: scale(0.95);
+    }
+
+    50% {
+      transform: scale(1.025);
+    }
+
+    60% {
+      transform: scale(0.975);
+    }
+
+    70% {
+      transform: scale(1.02);
+    }
+
+    80% {
+      transform: scale(0.985);
+    }
+
+    90% {
+      transform: scale(1.01);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .shrink-button {
+    animation: shrink-button 2s forwards ease-in-out;
+  }
+
+  @keyframes shrink-button {
+    0% {
+    }
+
+    20% {
+      transform: scale(0.1, 1);
+    }
+
+    25% {
+      transform: scale(0.2, 1);
+    }
+
+    /*   30% { transform: scale(.1, 1); } */
+    100% {
+      transform: scale(0);
+    }
   }
 `;

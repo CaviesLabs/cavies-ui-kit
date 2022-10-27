@@ -1,21 +1,6 @@
-import { FC, MouseEventHandler, CSSProperties, ReactNode, useRef } from 'react';
-import { StyledButton, ButtonHTMLType, ButtonShape } from './button.styled';
-import classnames from 'classnames';
-import styles from './button.module.scss';
-
-export interface ButtonProps {
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  children?: ReactNode;
-  containerStyle?: CSSProperties;
-  textStyle?: CSSProperties;
-  type?: ButtonHTMLType;
-  shape?: ButtonShape;
-  id?: string;
-  text?: string;
-  className?: string;
-  textClassName?: string;
-  disabled?: boolean | false;
-}
+import { FC, useRef } from 'react';
+import { StyledButton } from './button.styled';
+import { ButtonProps } from './types';
 
 export const Button: FC<ButtonProps> = props => {
   const buttonRef = useRef(null);
@@ -33,7 +18,7 @@ export const Button: FC<ButtonProps> = props => {
 
     /** @dev Create circle-grow container following mouse event position. */
     const div = document.createElement('div');
-    div.className = `${styles.circle} ${styles.grow}`;
+    div.className = `circle grow`;
     div.style.left = `${x}px`;
     div.style.top = `${y}px`;
     button.appendChild(div);
@@ -47,18 +32,19 @@ export const Button: FC<ButtonProps> = props => {
 
   return (
     <StyledButton
+      ref={buttonRef}
       onClick={props.onClick}
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
-      className={classnames(styles.button, props.className)}
-      ref={buttonRef}
+      className={props.className}
       disabled={props.disabled}
       type={props.type}
       shape={props.shape || 'primary'}
       style={props.containerStyle}
+      size={props.size}
     >
       <span>{props.text}</span>
-      <div id="circle" className={styles.circle}></div>
+      <div id="circle" className="circle"></div>
     </StyledButton>
   );
 };

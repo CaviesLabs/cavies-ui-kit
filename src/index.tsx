@@ -21,6 +21,7 @@ root.render(
           text="Button"
           type="submit"
           shape="primary"
+          size="small"
           containerStyle={{ width: '100%' }}
         />
       </div>
