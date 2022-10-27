@@ -43,21 +43,11 @@ yarn add @hamsterbox/ui-kit
 ## 🔨 Usage
 
 ```jsx
-import { Button, Input } from '@hamsterbox/ui-kit';
+import { Button } from '@hamsterbox/ui-kit';
 
 const App = () => (
   <>
-    <Button type="primary">PRESS ME</Button>
-    <Input
-      placeholder="Password"
-      type="password"
-      titleStatic={false} />
+    <Button type="primary">BUTTON PRIMARY</Button>
   </>
 );
-```
-
-And import style manually:
-
-```jsx
-import '@hamsterbox/ui-kit/dist/styles.css'; 
 ```

@@ -14,7 +14,7 @@ export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 export type Props = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
-> & { shape: ButtonShape };
+> & { shape?: ButtonShape | ButtonShape[0] };
 
 /** @dev This helper will used for render value base on disabled value  */
 const whenDisabled = (c_val: string, i_val: string) => {

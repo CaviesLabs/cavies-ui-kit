@@ -54,7 +54,7 @@ export const Button: FC<ButtonProps> = props => {
       ref={buttonRef}
       disabled={props.disabled}
       type={props.type}
-      shape={'secondary'}
+      shape={props.shape}
       style={props.containerStyle}
     >
       <span>{props.text}</span>
