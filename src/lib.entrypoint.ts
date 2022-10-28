@@ -1,8 +1,15 @@
 /** @dev Export components */
-export { Button, Input } from './components';
+export { Button, Input, Title, Body, Caption, SmallText } from './components';
 
 /** @dev Export components props interface */
-export type { ButtonProps, InputProps } from './components';
+export type {
+  ButtonProps,
+  InputProps,
+  TitleProps,
+  BodyProps,
+  CaptionProps,
+  SmallTextProps,
+} from './components';
 
 /**
  * @dev Export all functions releated to theme provider

@@ -83,10 +83,13 @@ const withSize = (props: StyledButtonProps) => {
  * @dev Style component
  */
 export const StyledButton = styled.button<StyledButtonProps>`
-  cursor: ${props => whenDisabled(props, '', 'pointer')};
-  display: inline-block;
+  cursor: ${props =>
+    props.loading ? 'auto' : whenDisabled(props, 'auto', 'pointer')};
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   border-radius: 4px;
-  margin-left: 20px;
   font-family: hk-font-medium;
   line-height: 22px;
   position: relative;
@@ -105,10 +108,11 @@ export const StyledButton = styled.button<StyledButtonProps>`
     border-radius: 4px;
   }
   &:hover {
-    color: #ffffff;
+    color: ${props => !props.loading && !props.disabled && StyleColors.white};
   }
   &:hover:after {
-    width: ${props => whenDisabled(props, '0%', '100%')};
+    width: ${props =>
+      props.loading ? '0' : whenDisabled(props, '0%', '100%')};
   }
 
   ${withShape}

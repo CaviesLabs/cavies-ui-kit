@@ -26,6 +26,7 @@ export type StyledButtonProps = DetailedHTMLProps<
 > & {
   shape?: ButtonShape | ButtonShape[0];
   size?: ComponentSize | ComponentSize[1];
+  loading?: boolean | false;
 };
 
 /** @dev Export interface props of styled button component*/
@@ -42,4 +43,5 @@ export interface ButtonProps {
   textClassName?: string;
   disabled?: boolean | false;
   size?: ComponentSize | ComponentSize[1];
+  loading?: boolean | false;
 }

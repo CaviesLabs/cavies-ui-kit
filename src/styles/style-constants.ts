@@ -5,6 +5,7 @@ export const enum StyleConstants {
 
 /** @dev Colors */
 export const StyleColors = {
+  transparent: '#ffffff00',
   white: '#FFFFFF',
   primary: {
     purple: '#735CF7',
