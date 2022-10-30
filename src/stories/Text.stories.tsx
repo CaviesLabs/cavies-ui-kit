@@ -92,7 +92,7 @@ LargeTitle.args = {
   text: 'Large title',
 };
 export const MediumTitle = TitleTemplate.bind({});
-LargeTitle.args = {
+MediumTitle.args = {
   type: 'medium',
   text: 'Medium title',
 };
