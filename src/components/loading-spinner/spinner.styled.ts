@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { StyleColors } from '../../styles/style-constants';
 
+/** @dev Export props interface */
 export interface SpinnerProps {
   width: number;
   height: number;

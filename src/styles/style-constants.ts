@@ -7,6 +7,7 @@ export const enum StyleConstants {
 export const StyleColors = {
   transparent: '#ffffff00',
   white: '#FFFFFF',
+  black: '#20242D',
   primary: {
     purple: '#735CF7',
     green: '#1EC777',

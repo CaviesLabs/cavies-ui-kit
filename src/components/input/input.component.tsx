@@ -1,34 +1,31 @@
-import { FC, ChangeEvent, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { EyeClose, EyeOpen } from '../../styles/icon-constants';
+import { InputProps, InputType } from './types';
+import { StyledInput } from './input.styled';
+import { SmallText } from '../typography/typography.component';
 
-type InputType = 'number' | 'text' | 'password';
+export const Input: FC<InputProps> = props => {
+  /** @dev Get nessesary properties */
+  const {
+    title,
+    type,
+    containerClassName,
+    inputClassName,
+    value,
+    error,
+    onValueChange,
+    onChange,
+  } = props;
 
-export interface InputProps {
-  title?: string;
-  placeholder?: string;
-  containerClassName?: string;
-  inputClassName?: string;
-  type?: InputType;
-  value?: string;
-  error?: string;
-  onValueChange?: (value: string) => void;
-  onChange?: (ref: Element | ChangeEvent<HTMLInputElement>) => void;
-}
-
-export const Input: FC<InputProps> = ({
-  title,
-  type,
-  placeholder,
-  containerClassName,
-  inputClassName,
-  value,
-  error,
-  onValueChange,
-  onChange,
-}) => {
   /**
    * @dev Use this state for handling display password filter
    */
   const [typeState, setTypeState] = useState<InputType>(type || 'text');
+
+  /**
+   * @dev Define value state
+   */
+  const [secondaryVal, setSecondaryVal] = useState('');
 
   /**
    * @dev This function to toggle password display
@@ -43,22 +40,27 @@ export const Input: FC<InputProps> = ({
    * @dev Detect if defaut type has changed
    */
   useEffect(() => {
-    // setTypeState(type);
+    type && setTypeState(type);
   }, [type]);
 
   return (
-    <div>
-      {title && <p>{title}</p>}
-      <div className="input-container">
+    <StyledInput
+      className={containerClassName}
+      secondaryVal={secondaryVal}
+      error={error}
+    >
+      <div className="container">
         <input
           {...(value ? { value } : {})}
           className={inputClassName}
           type={typeState}
+          required
           onChange={e => {
             onValueChange && onValueChange(e.target.value);
+            setSecondaryVal(e.target.value);
             onChange && onChange(e);
           }}
-          placeholder={placeholder || title || 'Input'}
+          autoComplete="off"
         />
         {type === 'password' && (
           <button
@@ -66,14 +68,22 @@ export const Input: FC<InputProps> = ({
             className="left-icon"
             type="button"
           >
-            {/* <img
-              src={typeState === 'password' ? ShowIcon : HideIcon}
+            <img
+              src={typeState === 'password' ? EyeOpen : EyeClose}
               className="w-[14px] h-[14px]"
-            /> */}
+              alt="cavies"
+            />
           </button>
         )}
+        <label htmlFor="text" className="label-name">
+          <span className="content-name">{title}</span>
+        </label>
       </div>
-      {error && <p className="error">{error}</p>}
-    </div>
+      {error && (
+        <SmallText className="error" type="regular">
+          {error}
+        </SmallText>
+      )}
+    </StyledInput>
   );
 };

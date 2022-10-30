@@ -4,7 +4,7 @@ export type { ButtonProps } from './button/types';
 
 /** @dev Export Input component */
 export { Input } from './input/input.component';
-export type { InputProps } from './input/input.component';
+export type { InputProps } from './input/types';
 
 /** @dev Export typography components */
 export {

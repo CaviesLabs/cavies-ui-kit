@@ -5,7 +5,14 @@ import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'sanitize.css/sanitize.css';
 
-import { ThemeProvider, Button, Title, Caption, Body } from './lib.entrypoint';
+import {
+  ThemeProvider,
+  Button,
+  Title,
+  Caption,
+  Body,
+  Input,
+} from './lib.entrypoint';
 
 import reportWebVitals from 'reportWebVitals';
 
@@ -17,6 +24,7 @@ root.render(
   <React.StrictMode>
     <ThemeProvider>
       <div style={{ width: '700px' }}>
+        <Input onValueChange={val => console.log(val)} title="Username" />
         <Title type="large">Hello world</Title>
         <Caption type="normal">This is a normal caption</Caption>
         <Caption type="regular">This is a regular caption</Caption>
@@ -48,17 +56,17 @@ root.render(
         <Button
           text="Button"
           type="submit"
-          shape="primary"
+          shape="secondary"
           size="small"
           containerStyle={{ width: '30%', marginTop: '20px' }}
           loading={true}
         />
         <Button
-          text="Button"
+          text="Sending transaction"
           type="submit"
-          shape="secondary"
+          shape="primary"
           size="small"
-          containerStyle={{ width: '30%', marginTop: '20px' }}
+          containerStyle={{ marginTop: '20px' }}
           loading={true}
         />
         <Button
