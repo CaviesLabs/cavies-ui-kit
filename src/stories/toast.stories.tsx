@@ -32,9 +32,3 @@ Primary.args = {
   text: 'Primary Toast',
   onClick: () => toast('Sample notification'),
 };
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  shape: 'secondary',
-  text: 'Secondary Button',
-};
