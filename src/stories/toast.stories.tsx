@@ -1,10 +1,9 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeProvider, Button } from '../lib.entrypoint';
+import { ThemeProvider, Button, toast } from '../lib.entrypoint';
 import type { ButtonProps } from '../lib.entrypoint';
+import '../styles/sass/main.css';
 
-export function ButtonComponent(props: ButtonProps) {
+export function ToastComponent(props: ButtonProps) {
   return (
     <ThemeProvider>
       <Button {...props} />
@@ -14,7 +13,7 @@ export function ButtonComponent(props: ButtonProps) {
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Cavies-UIKit/Button',
+  title: 'Cavies-UIKit/Toast',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -22,15 +21,16 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof ButtonComponent> = args => (
-  <ButtonComponent {...args} />
+const Template: ComponentStory<typeof ToastComponent> = args => (
+  <ToastComponent {...args} />
 );
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary = Template.bind({});
 Primary.args = {
   shape: 'primary',
-  text: 'Primary Button',
+  text: 'Primary Toast',
+  onClick: () => toast('Sample notification'),
 };
 
 export const Secondary = Template.bind({});

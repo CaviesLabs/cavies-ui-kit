@@ -17,7 +17,7 @@ import {
   getAutoCloseDelay,
   toToastItem,
 } from '../utils';
-import { eventManager, Event } from '../core/eventManager';
+import { eventManager, Event } from '../core/event-manager';
 
 import {
   Id,
@@ -103,8 +103,11 @@ export function useToastContainer(props: ToastContainerProps) {
   }
 
   function dequeueToast() {
-    const { toastContent, toastProps, staleId } =
-      instance.queue.shift() as QueuedToast;
+    const {
+      toastContent,
+      toastProps,
+      staleId,
+    } = instance.queue.shift() as QueuedToast;
     appendToast(toastContent, toastProps, staleId);
   }
 

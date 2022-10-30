@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { POSITION, TYPE, isStr, isNum, isFn, isToastIdValid } from '../utils';
-import { eventManager, OnChangeCallback, Event } from './eventManager';
+import { eventManager, OnChangeCallback, Event } from './event-manager';
 import {
   ToastContent,
   ToastOptions,

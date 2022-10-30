@@ -2,7 +2,7 @@
 
 yarn run gen-dts
 yarn run build
-
+node-sass src/styles/sass/main.scss src/styles/sass/main.css 
 
 # Clean up
 rm -rf dist/
@@ -19,6 +19,7 @@ yarn run gen-dts
 yarn run build
 
 # Copy all bundles folders/files from build-output folder to dist folde 
+cp src/styles/sass/main.css dist/
 cp -r dts/src/* dist/
 cp build/library/lib.entrypoint.js dist/
 cp build/static/css/*.css dist/lib.css

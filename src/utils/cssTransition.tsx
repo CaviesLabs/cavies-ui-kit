@@ -42,17 +42,15 @@ const enum AnimationStep {
 }
 
 /**
- * Css animation that just work.
- * You could use animate.css for instance
- *
- *
+ * @dev Css animation that just work.
+ * @description You could use animate.css for instance
+ * @set @param {CSSTransition}
  * ```
  * cssTransition({
  *   enter: "animate__animated animate__bounceIn",
  *   exit: "animate__animated animate__bounceOut"
  * })
  * ```
- *
  */
 export function cssTransition({
   enter,

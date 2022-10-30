@@ -10,7 +10,7 @@ const facility = () => (props: StyledInputProps) => {
   if (!props.secondaryVal) return;
   return `
     .label-name .content-name {
-      transform: translateY(-130%);
+      transform: translateY(-108%);
       font-size: 10px;
       padding-bottom: 5px;
     }
@@ -18,8 +18,9 @@ const facility = () => (props: StyledInputProps) => {
 };
 
 export const StyledInput = styled.div<StyledInputProps>`
+  height: 48px;
   div.container {
-    $parent: &;
+    height: 100%;
     width: 30%;
     position: relative;
     overflow: hidden;
@@ -30,16 +31,16 @@ export const StyledInput = styled.div<StyledInputProps>`
     font-family: hk-font-regular;
     color: ${StyleColors.black};
     border-radius: 8px;
-    height: 48px;
     input {
       width: 100%;
       font-size: 16px;
-      padding: 16px;
-      height: 100%;
+      height: 48px;
       border: none;
-      padding-top: 25px;
+      padding: 0;
+      padding-left: 16px;
       padding-right: 25px;
       font-family: hk-font-regular;
+      padding-top: 3px;
     }
     label {
       position: absolute;
@@ -77,7 +78,7 @@ export const StyledInput = styled.div<StyledInputProps>`
       outline: none;
     }
     input:focus + .label-name .content-name {
-      transform: translateY(-110%);
+      transform: translateY(-108%);
       font-size: 10px;
       padding-bottom: 5px;
     }
@@ -92,7 +93,7 @@ export const StyledInput = styled.div<StyledInputProps>`
       -webkit-transform: translate(-70%, -70%);
       transform: translate(-70%, -70%);
       position: absolute;
-      top: 63%;
+      top: 67%;
       background: transparent;
       border: none;
       cursor: pointer;

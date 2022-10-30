@@ -1,7 +1,7 @@
 {
   "name": "@hamsterbox/ui-kit",
   "description": "The UI library & kit of Cavies Labs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/CaviesLabs/hamster-ui-kit"
@@ -167,15 +167,13 @@
     ]
   },
   "eslintConfig": {
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
+    "overrides": [{
+      "files": [
+        "**/*.stories.*"
+      ],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
       }
-    ]
+    }]
   }
 }

@@ -1,2 +1,2 @@
-export * from './eventManager';
+export * from './event-manager';
 export * from './toast';
