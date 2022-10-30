@@ -3,11 +3,11 @@ import {
   useRef,
   useEffect,
   isValidElement,
-  DOMAttributes
+  DOMAttributes,
 } from 'react';
 
 import { isFn, Default, Direction, SyntheticEvent } from '../utils';
-import { ToastProps } from '../types';
+import { ToastProps } from '../types/toast.types';
 
 interface Draggable {
   start: number;
@@ -48,7 +48,7 @@ export function useToast(props: ToastProps) {
     canCloseOnClick: true,
     canDrag: false,
     boundingRect: null,
-    didMove: false
+    didMove: false,
   }).current;
   const syncProps = useRef(props);
   const { autoClose, pauseOnHover, closeToast, onClick, closeOnClick } = props;
@@ -62,7 +62,7 @@ export function useToast(props: ToastProps) {
       toastRef.current.addEventListener(
         SyntheticEvent.ENTRANCE_ANIMATION_END,
         playToast,
-        { once: true }
+        { once: true },
       );
 
     if (isFn(props.onOpen))
@@ -83,7 +83,9 @@ export function useToast(props: ToastProps) {
   }, [props.pauseOnFocusLoss]);
 
   function onDragStart(
-    e: React.MouseEvent<HTMLElement, MouseEvent> | React.TouchEvent<HTMLElement>
+    e:
+      | React.MouseEvent<HTMLElement, MouseEvent>
+      | React.TouchEvent<HTMLElement>,
   ) {
     if (props.draggable) {
       bindDragEvents();
@@ -207,7 +209,7 @@ export function useToast(props: ToastProps) {
     onMouseDown: onDragStart,
     onTouchStart: onDragStart,
     onMouseUp: onDragTransitionEnd,
-    onTouchEnd: onDragTransitionEnd
+    onTouchEnd: onDragTransitionEnd,
   };
 
   if (autoClose && pauseOnHover) {
@@ -229,6 +231,6 @@ export function useToast(props: ToastProps) {
     isRunning,
     preventExitTransition,
     toastRef,
-    eventHandlers
+    eventHandlers,
   };
 }

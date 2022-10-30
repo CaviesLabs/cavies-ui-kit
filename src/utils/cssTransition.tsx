@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { collapseToast } from './collapseToast';
 import { Default, SyntheticEvent } from './constant';
 
-import { ToastTransitionProps } from '../types';
+import { ToastTransitionProps } from '../types/toast.types';
 
 export interface CSSTransitionProps {
   /**
@@ -38,7 +38,7 @@ export interface CSSTransitionProps {
 
 const enum AnimationStep {
   Enter,
-  Exit
+  Exit,
 }
 
 /**
@@ -59,7 +59,7 @@ export function cssTransition({
   exit,
   appendPosition = false,
   collapse = true,
-  collapseDuration = Default.COLLAPSE_DURATION
+  collapseDuration = Default.COLLAPSE_DURATION,
 }: CSSTransitionProps) {
   return function ToastTransition({
     children,
@@ -67,7 +67,7 @@ export function cssTransition({
     preventExitTransition,
     done,
     nodeRef,
-    isIn
+    isIn,
   }: ToastTransitionProps) {
     const enterClassName = appendPosition ? `${enter}--${position}` : enter;
     const exitClassName = appendPosition ? `${exit}--${position}` : exit;

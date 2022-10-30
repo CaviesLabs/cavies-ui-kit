@@ -1,5 +1,6 @@
 import { createContext, FC, ReactNode } from 'react';
 import { GlobalStyle } from './styles/global-styles';
+import { ToastContainer } from './components/toast';
 
 /**
  * @dev Theme context states
@@ -24,6 +25,7 @@ export const ThemeProvider: FC<
 > = props => {
   return (
     <ThemeContext.Provider value={{}}>
+      <ToastContainer />
       <GlobalStyle />
       {props.children}
     </ThemeContext.Provider>

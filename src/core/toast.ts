@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { POSITION, TYPE, isStr, isNum, isFn, isToastIdValid } from '../utils';
 import { eventManager, OnChangeCallback, Event } from './eventManager';
 import {
@@ -58,7 +59,7 @@ function dispatchToast(
   options: NotValidatedToastProps,
 ): Id {
   if (containers.size > 0) {
-    eventManager.emit(Event.Show, content, options);
+    eventManager.emit(Event.Show, content as ReactNode, options);
   } else {
     queue.push({ content, options });
   }
@@ -115,7 +116,7 @@ function handlePromise<T = unknown>(
   if (pending) {
     id = isStr(pending)
       ? toast.loading(pending, options)
-      : toast.loading(pending.render, {
+      : toast.loading(pending.render as ReactNode, {
           ...options,
           ...(pending as ToastOptions),
         });
@@ -155,13 +156,16 @@ function handlePromise<T = unknown>(
       toast.update(id, {
         ...baseParams,
         ...params,
-      });
+      } as any);
     } else {
       // using toast.promise without loading
-      toast(params.render, {
-        ...baseParams,
-        ...params,
-      } as ToastOptions);
+      toast(
+        params.render as ReactNode,
+        {
+          ...baseParams,
+          ...params,
+        } as ToastOptions,
+      );
     }
 
     return result;
@@ -298,7 +302,7 @@ eventManager
     containers.set(latestInstance, containerInstance);
 
     queue.forEach(item => {
-      eventManager.emit(Event.Show, item.content, item.options);
+      eventManager.emit(Event.Show, item.content as ReactNode, item.options);
     });
 
     queue = [];

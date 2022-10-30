@@ -1,6 +1,6 @@
 import { isValidElement } from 'react';
 
-import { Id } from '../types';
+import { Id } from '../types/toast.types';
 
 export function isNum(v: any): v is Number {
   return typeof v === 'number' && !isNaN(v);
@@ -28,7 +28,7 @@ export function isToastIdValid(toastId?: Id) {
 
 export function getAutoCloseDelay(
   toastAutoClose?: false | number,
-  containerAutoClose?: false | number
+  containerAutoClose?: false | number,
 ) {
   return toastAutoClose === false ||
     (isNum(toastAutoClose) && toastAutoClose > 0)

@@ -4,6 +4,7 @@ import 'react-app-polyfill/stable';
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'sanitize.css/sanitize.css';
+import './styles/sass/main.scss';
 
 import {
   ThemeProvider,
@@ -12,6 +13,7 @@ import {
   Caption,
   Body,
   Input,
+  toast,
 } from './lib.entrypoint';
 
 import reportWebVitals from 'reportWebVitals';
@@ -20,8 +22,9 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-root.render(
-  <React.StrictMode>
+function App() {
+  const notify = () => toast('Wow so easy!');
+  return (
     <ThemeProvider>
       <div style={{ width: '700px' }}>
         <Input onValueChange={val => console.log(val)} title="Username" />
@@ -45,6 +48,7 @@ root.render(
           shape="primary"
           size="small"
           containerStyle={{ width: '30%' }}
+          onClick={() => notify()}
         />
         <Button
           text="Button"
@@ -78,6 +82,12 @@ root.render(
         />
       </div>
     </ThemeProvider>
+  );
+}
+
+root.render(
+  <React.StrictMode>
+    <App />
   </React.StrictMode>,
 );
 

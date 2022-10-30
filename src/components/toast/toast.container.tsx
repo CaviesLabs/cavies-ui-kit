@@ -1,8 +1,8 @@
 import React, { forwardRef, StyleHTMLAttributes, useEffect } from 'react';
 import cx from 'clsx';
 
-import { Toast } from './Toast';
-import { CloseButton } from './CloseButton';
+import { Toast } from './toast.component';
+import { CloseButton } from './close-button';
 import { Bounce } from './Transitions';
 import {
   POSITION,

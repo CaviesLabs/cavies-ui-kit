@@ -9,6 +9,15 @@ export type TypeOptions = 'info' | 'success' | 'warning' | 'error' | 'default';
 
 export type Theme = 'light' | 'dark' | 'colored';
 
+/**
+ * @dev The position of toast container
+ * @param {top-right} Position in the corner right in top of browser screen.
+ * @param {top-center} Position in the central in top of browser screen.
+ * @param {top-left} Position in the corner left in top of browser screen.
+ * @param {bottom-right} Position in the corner right in bottom of browser screen.
+ * @param {bottom-center} Position in the center in bottom of browser screen.
+ * @param {bottom-left} Position in the corner left in bottom of browser screen.
+ */
 export type ToastPosition =
   | 'top-right'
   | 'top-center'
@@ -53,40 +62,40 @@ export type DraggableDirection = 'x' | 'y';
 
 interface CommonOptions {
   /**
-   * Pause the timer when the mouse hover the toast.
-   * `Default: true`
+   * @dev Pause the timer when the mouse hover the toast.
+   * @param {default}: true
    */
   pauseOnHover?: boolean;
 
   /**
-   * Pause the toast when the window loses focus.
-   * `Default: true`
+   * @dev Pause the toast when the window loses focus.
+   * @param {default}: true
    */
   pauseOnFocusLoss?: boolean;
 
   /**
-   * Remove the toast when clicked.
-   * `Default: true`
+   * @dev Remove the toast when clicked.
+   * @param {Default}: true
    */
   closeOnClick?: boolean;
 
   /**
-   * Set the delay in ms to close the toast automatically.
-   * Use `false` to prevent the toast from closing.
-   * `Default: 5000`
+   * @dev Set the delay in ms to close the toast automatically.
+   * @additional Use `false` to prevent the toast from closing.
+   * @param {Default}: 5000
    */
   autoClose?: number | false;
 
   /**
-   * Set the default position to use.
-   * `One of: 'top-right', 'top-center', 'top-left', 'bottom-right', 'bottom-center', 'bottom-left'`
-   * `Default: 'top-right'`
+   * @dev Set the default position to use.
+   * @dev @set `One of: 'top-right', 'top-center', 'top-left', 'bottom-right', 'bottom-center', 'bottom-left'`
+   * @param {Default}: 'top-right'
    */
   position?: ToastPosition;
 
   /**
-   * Pass a custom close button.
-   * To remove the close button pass `false`
+   * @dev Pass a custom close button.
+   * @dev To remove the close button pass `false`
    */
   closeButton?:
     | boolean
@@ -94,79 +103,79 @@ interface CommonOptions {
     | React.ReactElement<CloseButtonProps>;
 
   /**
-   * An optional css class to set for the progress bar.
+   * @dev An optional css class to set for the progress bar.
    */
   progressClassName?: ToastClassName;
 
   /**
-   * An optional style to set for the progress bar.
+   * @dev An optional style to set for the progress bar.
    */
   progressStyle?: React.CSSProperties;
 
   /**
-   * An optional css class to set for the toast content.
+   * @dev An optional css class to set for the toast content.
    */
   bodyClassName?: ToastClassName;
 
   /**
-   * An optional inline style to apply for the toast content.
+   * @dev An optional inline style to apply for the toast content.
    */
   bodyStyle?: React.CSSProperties;
 
   /**
-   * Hide or show the progress bar.
-   * `Default: false`
+   * @dev Hide or show the progress bar.
+   * @param {Default}: false
    */
   hideProgressBar?: boolean;
 
   /**
-   * Pass a custom transition built with react-transition-group.
+   * @dev Pass a custom transition built with react-transition-group.
    */
   transition?: ToastTransition;
 
   /**
-   * Allow toast to be draggable
-   * `Default: true`
+   * @dev Allow toast to be draggable
+   * @param {Default}: true
    */
   draggable?: boolean;
 
   /**
-   * The percentage of the toast's width it takes for a drag to dismiss a toast
-   * `Default: 80`
+   * @dev The percentage of the toast's width it takes for a drag to dismiss a toast
+   * @param {Default}: 80
    */
   draggablePercent?: number;
 
   /**
-   * Specify in which direction should you swipe to dismiss the toast
-   * `Default: "x"`
+   * @dev Specify in which direction should you swipe to dismiss the toast
+   * @param {Default}: "x"
    */
 
   draggableDirection?: DraggableDirection;
 
   /**
-   * Define the ARIA role for the toast
-   * `Default: alert`
-   *  https://www.w3.org/WAI/PF/aria/roles
+   * @dev Define the ARIA role for the toast
+   * @dev `Default: alert`
    */
   role?: string;
 
   /**
-   * Set id to handle multiple container
+   * @dev Set id to handle multiple container
    */
   containerId?: Id;
 
   /**
-   * Fired when clicking inside toaster
+   * @dev Fired when clicking inside toaster
    */
   onClick?: (event: React.MouseEvent) => void;
 
   /**
-   * Support right to left display.
-   * `Default: false`
+   * @dev Support right to left display.
+   * @dev `Default: false`
    */
   rtl?: boolean;
 
   /**
+   * @dev
    * Used to display a custom icon. Set it to `false` to prevent
    * the icons from being displayed
    */
@@ -179,7 +188,7 @@ interface CommonOptions {
     | React.ReactNode;
 
   /**
-   * Theme to use.
+   * @dev Theme to use.
    * `One of: 'light', 'dark', 'colored'`
    * `Default: 'light'`
    */
@@ -188,48 +197,48 @@ interface CommonOptions {
 
 export interface ToastOptions<Data = {}> extends CommonOptions {
   /**
-   * An optional css class to set.
+   * @dev An optional css class to set.
    */
   className?: ToastClassName;
 
   /**
-   * Called when toast is mounted.
+   * @dev Called when toast is mounted.
    */
   onOpen?: <T = {}>(props: T) => void;
 
   /**
-   * Called when toast is unmounted.
+   * @dev Called when toast is unmounted.
    */
   onClose?: <T = {}>(props: T) => void;
 
   /**
-   * An optional inline style to apply.
+   * @dev An optional inline style to apply.
    */
   style?: React.CSSProperties;
 
   /**
-   * Set the toast type.
-   * `One of: 'info', 'success', 'warning', 'error', 'default'`
+   * @dev Set the toast type.
+   * @dev One of: 'info', 'success', 'warning', 'error', 'default'`
    */
   type?: TypeOptions;
 
   /**
-   * Set a custom `toastId`
+   * @dev Set a custom `toastId`
    */
   toastId?: Id;
 
   /**
-   * Used during update
+   * @dev Used during update
    */
   updateId?: Id;
 
   /**
-   * Set the percentage for the controlled progress bar. `Value must be between 0 and 1.`
+   * @dev Set the percentage for the controlled progress bar. `Value must be between 0 and 1.`
    */
   progress?: number | string;
 
   /**
-   * Add a delay in ms before the toast appear.
+   * @dev Add a delay in ms before the toast appear.
    */
   delay?: number;
 
@@ -240,47 +249,47 @@ export interface ToastOptions<Data = {}> extends CommonOptions {
 
 export interface UpdateOptions<T = unknown> extends Nullable<ToastOptions<T>> {
   /**
-   * Used to update a toast.
-   * Pass any valid ReactNode(string, number, component)
+   * @dev Used to update a toast.
+   * @dev Pass any valid ReactNode(string, number, component)
    */
   render?: ToastContent<T>;
 }
 
 export interface ToastContainerProps extends CommonOptions {
   /**
-   * An optional css class to set.
+   * @dev An optional css class to set.
    */
   className?: ToastClassName;
 
   /**
-   * Whether or not to display the newest toast on top.
-   * `Default: false`
+   * @dev Whether or not to display the newest toast on top.
+   * @dev `Default: false`
    */
   newestOnTop?: boolean;
 
   /**
-   * An optional inline style to apply.
+   * @dev An optional inline style to apply.
    */
   style?: React.CSSProperties;
 
   /**
-   * An optional inline style to apply for the toast.
+   * @dev An optional inline style to apply for the toast.
    */
   toastStyle?: React.CSSProperties;
 
   /**
-   * An optional css class for the toast.
+   * @dev An optional css class for the toast.
    */
   toastClassName?: ToastClassName;
 
   /**
-   * Show the toast only if it includes containerId and it's the same as containerId
-   * `Default: false`
+   * @dev Show the toast only if it includes containerId and it's the same as containerId
+   * @param {Default}: false
    */
   enableMultiContainer?: boolean;
 
   /**
-   * Limit the number of toast displayed at the same time
+   * @dev Limit the number of toast displayed at the same time
    */
   limit?: number;
 }

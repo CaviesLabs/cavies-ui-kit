@@ -4,7 +4,7 @@ import {
   useReducer,
   cloneElement,
   isValidElement,
-  useState
+  useState,
 } from 'react';
 import {
   parseClassName,
@@ -15,7 +15,7 @@ import {
   isStr,
   isToastIdValid,
   getAutoCloseDelay,
-  toToastItem
+  toToastItem,
 } from '../utils';
 import { eventManager, Event } from '../core/eventManager';
 
@@ -28,10 +28,10 @@ import {
   ToastPosition,
   ClearWaitingQueueParams,
   NotValidatedToastProps,
-  ToastTransition
-} from '../types';
+  ToastTransition,
+} from '../types/toast.types';
 
-import { getIcon } from '../components/Icons';
+import { getIcon } from '../components/toast/toast-icons';
 
 interface QueuedToast {
   toastContent: ToastContent;
@@ -64,7 +64,7 @@ export function useToastContainer(props: ToastContainerProps) {
     props,
     containerId: null,
     isToastActive,
-    getToast: id => toastToRender.get(id)
+    getToast: id => toastToRender.get(id),
   }).current;
 
   useEffect(() => {
@@ -76,10 +76,10 @@ export function useToastContainer(props: ToastContainerProps) {
       .on(Event.ClearWaitingQueue, clearWaitingQueue)
       .emit(Event.DidMount, instance);
 
-      return () => {
-        toastToRender.clear();
-        eventManager.emit(Event.WillUnmount, instance);
-      };
+    return () => {
+      toastToRender.clear();
+      eventManager.emit(Event.WillUnmount, instance);
+    };
   }, []);
 
   useEffect(() => {
@@ -98,7 +98,7 @@ export function useToastContainer(props: ToastContainerProps) {
 
   function removeToast(toastId?: Id) {
     setToastIds(state =>
-      isToastIdValid(toastId) ? state.filter(id => id !== toastId) : []
+      isToastIdValid(toastId) ? state.filter(id => id !== toastId) : [],
     );
   }
 
@@ -125,7 +125,7 @@ export function useToastContainer(props: ToastContainerProps) {
   // this function and all the function called inside needs to rely on refs
   function buildToast(
     content: ToastContent,
-    { delay, staleId, ...options }: NotValidatedToastProps
+    { delay, staleId, ...options }: NotValidatedToastProps,
   ) {
     if (!canBeRendered(content) || isNotValid(options)) return;
 
@@ -154,7 +154,7 @@ export function useToastContainer(props: ToastContainerProps) {
       transition: options.transition || (props.transition as ToastTransition),
       className: parseClassName(options.className || props.toastClassName),
       bodyClassName: parseClassName(
-        options.bodyClassName || props.bodyClassName
+        options.bodyClassName || props.bodyClassName,
       ),
       style: options.style || props.toastStyle,
       bodyStyle: options.bodyStyle || props.bodyStyle,
@@ -176,7 +176,7 @@ export function useToastContainer(props: ToastContainerProps) {
         ? options.closeOnClick
         : props.closeOnClick,
       progressClassName: parseClassName(
-        options.progressClassName || props.progressClassName
+        options.progressClassName || props.progressClassName,
       ),
       progressStyle: options.progressStyle || props.progressStyle,
       autoClose: options.isLoading
@@ -215,7 +215,7 @@ export function useToastContainer(props: ToastContainerProps) {
         } else {
           forceUpdate();
         }
-      }
+      },
     };
 
     toastProps.iconOut = getIcon(toastProps);
@@ -236,11 +236,14 @@ export function useToastContainer(props: ToastContainerProps) {
     let toastContent = content;
 
     if (isValidElement(content) && !isStr(content.type)) {
-      toastContent = cloneElement(content, {
+      toastContent = cloneElement(content);
+      /**
+       *  {
         closeToast,
         toastProps,
-        data
-      });
+        data,
+      }
+       */
     } else if (isFn(content)) {
       toastContent = content({ closeToast, toastProps, data });
     }
@@ -265,7 +268,7 @@ export function useToastContainer(props: ToastContainerProps) {
   function appendToast(
     content: ToastContent,
     toastProps: ToastProps,
-    staleId?: Id
+    staleId?: Id,
   ) {
     const { toastId } = toastProps;
 
@@ -273,19 +276,19 @@ export function useToastContainer(props: ToastContainerProps) {
 
     const toast = {
       content,
-      props: toastProps
+      props: toastProps,
     };
     toastToRender.set(toastId, toast);
 
     setToastIds(state => [...state, toastId].filter(id => id !== staleId));
     eventManager.emit(
       Event.Change,
-      toToastItem(toast, toast.props.updateId == null ? 'added' : 'updated')
+      toToastItem(toast, toast.props.updateId == null ? 'added' : 'updated'),
     );
   }
 
   function getToastToRender<T>(
-    cb: (position: ToastPosition, toastList: Toast[]) => T
+    cb: (position: ToastPosition, toastList: Toast[]) => T,
   ) {
     const toRender = new Map<ToastPosition, Toast[]>();
     const collection = Array.from(toastToRender.values());
@@ -304,6 +307,6 @@ export function useToastContainer(props: ToastContainerProps) {
   return {
     getToastToRender,
     containerRef,
-    isToastActive
+    isToastActive,
   };
 }

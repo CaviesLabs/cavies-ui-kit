@@ -6,7 +6,7 @@ import { Default } from './constant';
 export function collapseToast(
   node: HTMLElement,
   done: () => void,
-  duration = Default.COLLAPSE_DURATION
+  duration = Default.COLLAPSE_DURATION,
 ) {
   const { scrollHeight, style } = node;
 

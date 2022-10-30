@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import cx from 'clsx';
 
 import { ProgressBar } from './ProgressBar';
-import { CloseButton } from './CloseButton';
+import { CloseButton } from './close-button';
 import { ToastProps } from '../../types/toast.types';
 import { Default, isFn } from '../../utils';
 import { useToast } from '../../hooks/useToast';
@@ -103,7 +103,7 @@ export const Toast: React.FC<ToastProps> = props => {
               {iconOut}
             </div>
           )}
-          <div>{children}</div>
+          <div>{children as ReactNode}</div>
         </div>
         {Close}
         {(autoClose || isProgressControlled) && (
