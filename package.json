@@ -1,7 +1,7 @@
 {
   "name": "@hamsterbox/ui-kit",
   "description": "The UI library & kit of Cavies Labs",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "repository": {
     "type": "git",
     "url": "https://github.com/CaviesLabs/hamster-ui-kit"

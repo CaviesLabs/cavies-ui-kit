@@ -8,7 +8,7 @@
     "editor.defaultFormatter": "SimonSiefke.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "Wscats.qf"
   },
   "[json]": {
     "editor.defaultFormatter": "Wscats.qf"
