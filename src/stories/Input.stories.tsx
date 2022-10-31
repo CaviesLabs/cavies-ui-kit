@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeProvider, Input } from '../lib.entrypoint';
-import type { InputProps } from '../lib.entrypoint';
+import { ThemeProvider, Input } from '../browser';
+import type { InputProps } from '../browser';
 
 export function InputComponent(props: InputProps) {
   return (

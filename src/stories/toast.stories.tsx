@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeProvider, Button, toast } from '../lib.entrypoint';
-import type { ButtonProps } from '../lib.entrypoint';
+import { ThemeProvider, Button, toast } from '../browser';
+import type { ButtonProps } from '../browser';
 import '../styles/sass/main.css';
 
 export function ToastComponent(props: ButtonProps) {

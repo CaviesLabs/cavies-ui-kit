@@ -1,18 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import {
-  ThemeProvider,
-  Title,
-  Body,
-  Caption,
-  SmallText,
-} from '../lib.entrypoint';
+import { ThemeProvider, Title, Body, Caption, SmallText } from '../browser';
 import type {
   TitleProps,
   BodyProps,
   CaptionProps,
   SmallTextProps,
-} from '../lib.entrypoint';
+} from '../browser';
 
 /**
  * @dev Export tile componet

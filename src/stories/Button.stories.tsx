@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeProvider, Button } from '../lib.entrypoint';
-import type { ButtonProps } from '../lib.entrypoint';
+import { ThemeProvider, Button } from '../browser';
+import type { ButtonProps } from '../browser';
 
 export function ButtonComponent(props: ButtonProps) {
   return (

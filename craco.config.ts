@@ -11,11 +11,12 @@ if (process.env.NODE_ENV !== 'production') {
   config = {
     webpack: {
       configure: {
+        target: 'web',
         devtool: false,
-        entry: './src/lib.entrypoint.ts',
+        entry: 'src/browser.ts',
         output: {
-          filename: 'library/lib.entrypoint.js',
-          library: '@hamsterbox/ui-kit',
+          filename: 'browser/browser.js',
+          library: 'HamsterBoxUIKit',
           libraryTarget: 'umd',
           umdNamedDefine: true,
         },

@@ -14,9 +14,9 @@ import {
   Body,
   Input,
   toast,
-} from './lib.entrypoint';
+} from './browser';
 
-import reportWebVitals from 'reportWebVitals';
+import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,

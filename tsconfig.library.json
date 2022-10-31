@@ -5,12 +5,13 @@
     "**/*.ts",
     "**/*.tsx",
     "typings.d.ts",
-    "fonts.d.ts",
+    "exports",
   ],
   "exclude": [
     "node_modules"
   ],
   "compilerOptions": {
+    "esModuleInterop": true,
     "outDir": "dist",
     "declaration": true,
     "declarationDir": "dts",
