@@ -11,6 +11,9 @@ export type {
   SmallTextProps,
 } from './components';
 
+/** @dev Export global styles in styled-component format */
+export { GlobalStyle as StyledComponentGlobal } from './styles/global-styles';
+
 /**
  * @dev Export all functions releated to theme provider
  * @description

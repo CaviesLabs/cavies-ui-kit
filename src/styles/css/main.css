@@ -514,3 +514,15 @@
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+
+@font-face {
+  font-family: 'hk-font-medium';
+  src: local("hk-font-medium"), local("hk-font-medium"), url("../../assets/poppins/Poppins-Medium.otf");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'hk-font-regular';
+  src: local("hk-font-regular"), local("hk-font-regular"), url("../../assets/poppins/Poppins-Regular.otf");
+  font-weight: 300;
+  font-style: normal; }

@@ -1,7 +1,7 @@
 {
   "name": "@hamsterbox/ui-kit",
   "description": "The UI library & kit of Cavies Labs",
-  "version": "0.2.6",
+  "version": "0.3.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/CaviesLabs/hamster-ui-kit"
@@ -189,17 +189,19 @@
     ]
   },
   "eslintConfig": {
-    "overrides": [{
-      "files": [
-        "**/*.stories.*"
-      ],
-      "rules": {
-        "import/no-anonymous-default-export": "off"
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
       }
-    }]
+    ]
   },
   "peerDependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   }
 }

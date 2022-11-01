@@ -20,9 +20,9 @@
     "emitDeclarationOnly": true,
 
     // Declare type extensions
-    "typeRoots" : ["node_modules/@types", "./fonts.d.ts"],
+    "typeRoots" : ["node_modules/@types", "fonts.d.ts"],
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "fonts.d.ts"],
   "exclude": [
     "src/stories",
     "src/reportWebVitals.ts",

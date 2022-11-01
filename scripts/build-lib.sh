@@ -18,10 +18,15 @@ rm -rf cjs/
 yarn run build:rollup
 
 # Complie style
-node-sass src/styles/sass/main.scss src/styles/sass/main.css 
+node-sass src/styles/css/main.scss src/styles/css/main.css 
 
-cp src/styles/sass/main.css dist/esm
-cp src/styles/sass/main.css dist/cjs
+# Create directory contains styles in module
+mkdir dist/cjs/styles/css/
+mkdir dist/esm/styles/css/
+
+# Copy style into module
+cp src/styles/css/main.css dist/esm/styles/css/
+cp src/styles/css/main.css dist/cjs/styles/css/
 
 mkdir dist/esm/assets/
 mkdir dist/cjs/assets/

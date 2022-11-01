@@ -4,7 +4,7 @@ import 'react-app-polyfill/stable';
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'sanitize.css/sanitize.css';
-import './styles/sass/main.scss';
+import './styles/css/main.scss';
 
 import {
   ThemeProvider,
@@ -15,7 +15,6 @@ import {
   Input,
   toast,
 } from './browser';
-import { Button as Button2 } from './cjs';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -43,14 +42,6 @@ function App() {
           accident, sometimes on purpose (injected humour and the like).
         </Body>
         <Button
-          text="Button"
-          type="submit"
-          shape="primary"
-          size="small"
-          containerStyle={{ width: '30%' }}
-          onClick={() => notify()}
-        />
-        <Button2
           text="Button"
           type="submit"
           shape="primary"
