@@ -33,3 +33,5 @@ template
 .eslintcache
 dist
 dts
+cjs
+esm

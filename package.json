@@ -1,7 +1,7 @@
 {
   "name": "@hamsterbox/ui-kit",
   "description": "The UI library & kit of Cavies Labs",
-  "version": "0.0.60",
+  "version": "0.2.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/CaviesLabs/hamster-ui-kit"
@@ -11,8 +11,12 @@
     "node": ">=14.x"
   },
   "author": "CaviesLabs Engineer <dev@cavies.xyz>",
-  "main": "browser.js",
-  "types": "browser.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/browser.d.ts",
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "react",
     "typescript",
@@ -21,8 +25,12 @@
     "ui-kit"
   ],
   "scripts": {
+    "build-es": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
     "start": "craco start",
     "build:craco": "NODE_ENV=production craco build",
+    "build:rollup": "rollup -c --bundleConfigAsCjs",
     "build:lib": "bash ./scripts/build-lib.sh",
     "test": "craco test",
     "start:prod": "yarn run build && serve -s build",
@@ -100,6 +108,9 @@
   "devDependencies": {
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
+    "@rollup/plugin-commonjs": "23.0.2",
+    "@rollup/plugin-node-resolve": "15.0.1",
+    "@rollup/plugin-typescript": "9.0.2",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-interactions": "^6.5.13",
@@ -114,8 +125,8 @@
     "@types/fontfaceobserver": "^2.1.0",
     "@types/jest": "^27.5.2",
     "@types/node": "18.11.7",
-    "@types/react": "^18.0.20",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "18.0.24",
+    "@types/react-dom": "18.0.8",
     "@types/react-redux": "^7.1.24",
     "@types/react-test-renderer": "^18.0.0",
     "@types/rimraf": "^3.0.2",
@@ -147,6 +158,12 @@
     "react-test-renderer": "18.2.0",
     "replace-in-file": "6.3.5",
     "rimraf": "3.0.2",
+    "rollup": "3.2.3",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-postcss": "4.0.2",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup-plugin-url": "3.0.1",
     "serve": "14.0.1",
     "shelljs": "0.8.5",
     "standard-version": "9.5.0",
@@ -180,5 +197,9 @@
         "import/no-anonymous-default-export": "off"
       }
     }]
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   }
 }

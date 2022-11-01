@@ -15,8 +15,8 @@ import {
   Input,
   toast,
 } from './browser';
-
-import reportWebVitals from './reportWebVitals';
+import { Button as Button2 } from './cjs';
+// import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -43,6 +43,14 @@ function App() {
           accident, sometimes on purpose (injected humour and the like).
         </Body>
         <Button
+          text="Button"
+          type="submit"
+          shape="primary"
+          size="small"
+          containerStyle={{ width: '30%' }}
+          onClick={() => notify()}
+        />
+        <Button2
           text="Button"
           type="submit"
           shape="primary"
@@ -94,4 +102,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
