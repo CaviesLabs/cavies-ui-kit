@@ -13,6 +13,8 @@ export const Input: FC<InputProps> = props => {
     inputClassName,
     value,
     error,
+    size,
+    style,
     onValueChange,
     onChange,
   } = props;
@@ -48,6 +50,8 @@ export const Input: FC<InputProps> = props => {
       className={containerClassName}
       secondaryVal={secondaryVal}
       error={error}
+      size={size}
+      style={style}
     >
       <div className="container">
         <input
@@ -70,7 +74,6 @@ export const Input: FC<InputProps> = props => {
           >
             <img
               src={typeState === 'password' ? EyeOpen : EyeClose}
-              className="w-[14px] h-[14px]"
               alt="cavies"
             />
           </button>

@@ -16,9 +16,8 @@ import { ToastContainerProps, ToastPosition } from '../../types/toast.types';
 
 export const ToastContainer = forwardRef<HTMLDivElement, ToastContainerProps>(
   (props, ref) => {
-    const { getToastToRender, containerRef, isToastActive } = useToastContainer(
-      props,
-    );
+    const { getToastToRender, containerRef, isToastActive } =
+      useToastContainer(props);
     const { className, style, rtl, containerId } = props;
 
     function getClassName(position: ToastPosition) {
@@ -38,9 +37,8 @@ export const ToastContainer = forwardRef<HTMLDivElement, ToastContainerProps>(
 
     useEffect(() => {
       if (ref) {
-        (ref as React.MutableRefObject<
-          HTMLDivElement
-        >).current = containerRef.current!;
+        (ref as React.MutableRefObject<HTMLDivElement>).current =
+          containerRef.current!;
       }
     }, []);
 

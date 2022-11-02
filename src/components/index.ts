@@ -6,6 +6,10 @@ export type { ButtonProps } from './button/types';
 export { Input } from './input/input.component';
 export type { InputProps } from './input/types';
 
+/** @dev Export modal component */
+export { Modal } from './modal/modal.component';
+export type { ModalProps } from './modal/types';
+
 /** @dev Export typography components */
 export {
   Title,

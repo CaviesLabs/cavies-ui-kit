@@ -16,7 +16,7 @@ const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
 export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 /** @dev Export enum component size */
-const ComponentSizes = tuple('large', 'medium', 'small');
+const ComponentSizes = tuple('large', 'medium', 'xsmall', 'small');
 export type ComponentSize = typeof ComponentSizes[number];
 
 /** @dev Export interface props */

@@ -19,45 +19,9 @@
       box-sizing: border-box;
     }
   </style>
-  <script>/* globals window */
-    /* eslint-disable no-underscore-dangle */
-    try {
-      if (window.top !== window) {
-        window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.top.__REACT_DEVTOOLS_GLOBAL_HOOK__;
-      }
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.warn('unable to connect to top frame for connecting dev tools');
-    }
-
-    window.onerror = function onerror(message, source, line, column, err) {
-      if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
-      // eslint-disable-next-line no-var, vars-on-top
-      var xhr = new window.XMLHttpRequest();
-      xhr.open('POST', '/runtime-error');
-      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-      xhr.send(
-        JSON.stringify({
-          /* eslint-disable object-shorthand */
-          message: message,
-          source: source,
-          line: line,
-          column: column,
-          error: err && { message: err.message, name: err.name, stack: err.stack },
-          origin: 'manager',
-          /* eslint-enable object-shorthand */
-        })
-      );
-    };</script>
-  <style>
-    #root[hidden],
-    #docs-root[hidden] {
-      display: none !important;
-    }
-  </style>
   <meta name="viewport" content="width=device-width">
   <meta charset="utf-8">
-  <title>Cavies Labs | Building towards the future of Web3 Gaming</title>
+  <title>Cavies Labs | UI Kit</title>
   <meta name="title" content="Cavies Labs | Building towards the future of Web3 Gaming">
   <meta name="description"
     content="We build and contribute to the Web3 gaming landscape using unorthodox and friendly solutions">
@@ -106,6 +70,42 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="https://cavies.xyz/assets/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
+  <script>/* globals window */
+    /* eslint-disable no-underscore-dangle */
+    try {
+      if (window.top !== window) {
+        window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.top.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+      }
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.warn('unable to connect to top frame for connecting dev tools');
+    }
+
+    window.onerror = function onerror(message, source, line, column, err) {
+      if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
+      // eslint-disable-next-line no-var, vars-on-top
+      var xhr = new window.XMLHttpRequest();
+      xhr.open('POST', '/runtime-error');
+      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+      xhr.send(
+        JSON.stringify({
+          /* eslint-disable object-shorthand */
+          message: message,
+          source: source,
+          line: line,
+          column: column,
+          error: err && { message: err.message, name: err.name, stack: err.stack },
+          origin: 'manager',
+          /* eslint-enable object-shorthand */
+        })
+      );
+    };</script>
+  <style>
+    #root[hidden],
+    #docs-root[hidden] {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -129,7 +129,7 @@
 
     window['DOCS_MODE'] = false;</script>
   <script src="runtime~main.ce49f6e198528919f25d.manager.bundle.js"></script>
-  <script src="177.0ad8a74afe03e4ad1848.manager.bundle.js"></script>
+  <script src="177.acef6ffcedcfa2122f92.manager.bundle.js"></script>
   <script src="main.95131af8543ed75c4f63.manager.bundle.js"></script>
 </body>
 

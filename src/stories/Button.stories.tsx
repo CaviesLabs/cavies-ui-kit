@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeProvider, Button } from '../browser';
 import type { ButtonProps } from '../browser';
 
-export function ButtonComponent(props: ButtonProps) {
+function ButtonComponent(props: ButtonProps) {
   return (
     <ThemeProvider>
       <Button {...props} />

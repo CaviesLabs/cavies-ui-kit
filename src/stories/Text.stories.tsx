@@ -1,3 +1,4 @@
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeProvider, Title, Body, Caption, SmallText } from '../browser';
@@ -13,7 +14,7 @@ import type {
  * @param {props} Title props
  * @returns
  */
-export function TitleComponent(props: TitleProps & { text: string }) {
+function TitleComponent(props: TitleProps & { text: string }) {
   return (
     <ThemeProvider>
       <Title {...props}>{props.text}</Title>
@@ -26,7 +27,7 @@ export function TitleComponent(props: TitleProps & { text: string }) {
  * @param {props} Body props
  * @returns @var {component}
  */
-export function BodyComponent(props: BodyProps & { text: string }) {
+function BodyComponent(props: BodyProps & { text: string }) {
   return (
     <ThemeProvider>
       <Body {...props}>{props.text}</Body>
@@ -39,7 +40,7 @@ export function BodyComponent(props: BodyProps & { text: string }) {
  * @param {props} Caption props.
  * @returns @var {component}
  */
-export function CaptionComponent(props: CaptionProps & { text: string }) {
+function CaptionComponent(props: CaptionProps & { text: string }) {
   return (
     <ThemeProvider>
       <Caption {...props}>{props.text}</Caption>
@@ -52,7 +53,7 @@ export function CaptionComponent(props: CaptionProps & { text: string }) {
  * @param {props} SmallText props.
  * @returns @var {component}
  */
-export function SmallTextComponent(props: SmallTextProps & { text: string }) {
+function SmallTextComponent(props: SmallTextProps & { text: string }) {
   return (
     <ThemeProvider>
       <SmallText {...props}>{props.text}</SmallText>

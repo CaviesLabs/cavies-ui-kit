@@ -3,6 +3,11 @@ import { StyleColors } from '../../styles/style-constants';
 import { StyledInputProps } from './types';
 
 /**
+ * @dev Top value of input title when focus or value of title is not empty.
+ */
+const TitleTranslateY = '-120%';
+
+/**
  * @dev Translate title label to default position when the input is empty value.
  * @returns styles
  */
@@ -10,7 +15,7 @@ const facility = () => (props: StyledInputProps) => {
   if (!props.secondaryVal) return;
   return `
     .label-name .content-name {
-      transform: translateY(-108%);
+      transform: translateY(${TitleTranslateY});
       font-size: 10px;
       padding-bottom: 5px;
     }
@@ -30,15 +35,16 @@ export const StyledInput = styled.div<StyledInputProps>`
       0 0 1px 0px ${StyleColors.dark[30]};
     font-family: hk-font-regular;
     color: ${StyleColors.black};
-    border-radius: 8px;
+    border-radius: 16px;
     input {
+      border-radius: 16px;
       width: 100%;
-      font-size: 16px;
+      font-size: ${props => (props.size === 'small' ? '16px' : '18px')};
       height: 48px;
       border: none;
       padding: 0;
       padding-left: 16px;
-      padding-right: 25px;
+      padding-right: ${props => (props.type === 'password' ? '40px' : '16px')};
       font-family: hk-font-regular;
       padding-top: 3px;
     }
@@ -78,7 +84,7 @@ export const StyledInput = styled.div<StyledInputProps>`
       outline: none;
     }
     input:focus + .label-name .content-name {
-      transform: translateY(-108%);
+      transform: translateY(${TitleTranslateY});
       font-size: 10px;
       padding-bottom: 5px;
     }
@@ -97,6 +103,10 @@ export const StyledInput = styled.div<StyledInputProps>`
       background: transparent;
       border: none;
       cursor: pointer;
+      img {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
   .error {

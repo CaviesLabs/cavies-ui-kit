@@ -16,10 +16,18 @@
 @import 'animations/spin.scss';
 
 
+body {
+
+  // MAKE BODY OVERFLOW HIDDEN WHEN OPEN MODAL
+  &.modal-active {
+    overflow: hidden;
+  }
+}
+
 @font-face {
   font-family: 'hk-font-medium';
   src: local('hk-font-medium'), local('hk-font-medium'),
-  url('../../assets/poppins/Poppins-Medium.otf');
+    url('../../assets/poppins/Poppins-Medium.otf');
   font-weight: 300;
   font-style: normal;
 }
@@ -27,7 +35,7 @@
 @font-face {
   font-family: 'hk-font-regular';
   src: local('hk-font-regular'), local('hk-font-regular'),
-  url('../../assets/poppins/Poppins-Regular.otf');
+    url('../../assets/poppins/Poppins-Regular.otf');
   font-weight: 300;
   font-style: normal;
 }

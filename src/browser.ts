@@ -1,5 +1,13 @@
 /** @dev Export components */
-export { Button, Input, Title, Body, Caption, SmallText } from './components';
+export {
+  Button,
+  Input,
+  Title,
+  Body,
+  Caption,
+  SmallText,
+  Modal,
+} from './components';
 
 /** @dev Export components props interface */
 export type {
@@ -9,6 +17,7 @@ export type {
   BodyProps,
   CaptionProps,
   SmallTextProps,
+  ModalProps,
 } from './components';
 
 /** @dev Export global styles in styled-component format */

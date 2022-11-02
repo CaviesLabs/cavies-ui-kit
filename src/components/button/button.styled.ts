@@ -63,19 +63,30 @@ const withSize = (props: StyledButtonProps) => {
   const { size } = props;
   if (size === 'large') {
     return `
-      font-size: 16px;
+      font-size: 18px;
       padding: 14px 16px;
+      height: 56px;
+    `;
+  } else if (size === 'xsmall') {
+    return `
+      font-size: 14px;
+      padding: 12px 5px;
+      height: 44px;
+      padding: 0 5px;
     `;
   } else if (size === 'small') {
     return `
       font-size: 14px;
       padding: 12px 5px;
+      height: 36px;
+      padding: 0 5px;
     `;
   }
 
   return `
     font-size: 16px;
     padding: 12px 16px;
+    height: 52px;
   `;
 };
 
@@ -89,7 +100,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 100px;
   font-family: hk-font-medium;
   line-height: 22px;
   position: relative;
@@ -105,7 +116,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
     width: 0;
     height: 100%;
     transition: all 0.35s;
-    border-radius: 4px;
+    border-radius: 100px;
   }
   &:hover {
     color: ${props => !props.loading && !props.disabled && StyleColors.white};

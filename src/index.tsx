@@ -26,7 +26,17 @@ function App() {
   return (
     <ThemeProvider>
       <div style={{ width: '700px' }}>
-        <Input onValueChange={val => console.log(val)} title="Username" />
+        <Input
+          // type="password"
+          onValueChange={val => console.log(val)}
+          title="Username"
+        />
+        <Input
+          size="small"
+          onValueChange={val => console.log(val)}
+          title="Username"
+          style={{ marginTop: '20px' }}
+        />
         <Title type="large">Hello world</Title>
         <Caption type="normal">This is a normal caption</Caption>
         <Caption type="regular">This is a regular caption</Caption>
@@ -45,7 +55,7 @@ function App() {
           text="Button"
           type="submit"
           shape="primary"
-          size="small"
+          size="large"
           containerStyle={{ width: '30%' }}
           onClick={() => notify()}
         />
@@ -53,7 +63,7 @@ function App() {
           text="Button"
           type="submit"
           shape="secondary"
-          size="small"
+          size="medium"
           containerStyle={{ width: '30%', marginTop: '20px' }}
         />
         <Button
@@ -61,7 +71,7 @@ function App() {
           type="submit"
           shape="secondary"
           size="small"
-          containerStyle={{ width: '30%', marginTop: '20px' }}
+          containerStyle={{ marginTop: '20px', width: '20%' }}
           loading={true}
         />
         <Button

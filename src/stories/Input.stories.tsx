@@ -1,9 +1,10 @@
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeProvider, Input } from '../browser';
 import type { InputProps } from '../browser';
 
-export function InputComponent(props: InputProps) {
+function InputComponent(props: InputProps) {
   return (
     <ThemeProvider>
       <Input {...props} />
