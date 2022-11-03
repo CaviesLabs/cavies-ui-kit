@@ -14,9 +14,11 @@ import {
  */
 export const StyledTitle = styled.h3<TitleProps>`
   font-size: ${props =>
-    TitleFontSizes[TitleTypes.indexOf(props.type || TitleTypes[0])]};
+    TitleFontSizes[TitleTypes.indexOf(props.type || TitleTypes[0])]} !important;
   line-height: ${props =>
-    TitleLineHeights[TitleTypes.indexOf(props.type || TitleTypes[0])]};
+    TitleLineHeights[
+      TitleTypes.indexOf(props.type || TitleTypes[0])
+    ]} !important;
   font-family: hk-font-medium;
 `;
 
@@ -24,8 +26,8 @@ export const StyledTitle = styled.h3<TitleProps>`
  * @dev Export styled-component for body component attach with props
  */
 export const StyledBody = styled.p<BodyProps>`
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 16px !important;
+  line-height: 24px !important;
   font-family: ${props =>
     props.type === 'regular' ? 'hk-font-regular' : 'hk-font-medium'};
 `;
@@ -34,8 +36,8 @@ export const StyledBody = styled.p<BodyProps>`
  * @dev Export styled-component for Caption component attach with props
  */
 export const StyledCaption = styled.p<CaptionProps>`
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 14px !important;
+  line-height: 22px !important;
   font-family: ${props =>
     props.type === 'regular' ? 'hk-font-regular' : 'hk-font-medium'};
 `;
@@ -44,8 +46,8 @@ export const StyledCaption = styled.p<CaptionProps>`
  * @dev Export styled-component for SmallText component attach with props
  */
 export const StyledSmallText = styled.p<SmallTextProps>`
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 12px !important;
+  line-height: 18px !important;
   font-family: ${props =>
     props.type === 'regular' ? 'hk-font-regular' : 'hk-font-medium'};
 `;

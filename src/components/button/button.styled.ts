@@ -32,9 +32,9 @@ const withShape = (props: StyledButtonProps) => {
         StyleColors.dark[40],
         StyleColors.primary.purple,
       )};
-      background: ${StyleColors.white};
+      background: ${StyleColors.white} !important;
       &:after {
-        background: ${StyleColors.primary.purple};
+        background: ${StyleColors.primary.purple} !important;
       }
     `;
   }
@@ -44,9 +44,9 @@ const withShape = (props: StyledButtonProps) => {
     color: ${StyleColors.white};
     background: ${
       props.disabled ? StyleColors.dark[40] : StyleColors.primary.purple
-    };
+    } !important;
     &:after {
-      background: ${StyleColors.secondary.purple[50]};
+      background: ${StyleColors.secondary.purple[50]} !important;
     };
 `;
 };
@@ -101,9 +101,10 @@ const withSize = (props: StyledButtonProps) => {
 /**
  * @dev Style component
  */
-export const StyledButton = styled.button<StyledButtonProps>`
+export const StyledButton = styled.div<StyledButtonProps>`
   padding: 0;
   border: none;
+  display: inline-block;
   .b-mc {
     width: 100%;
     height: 100%;
