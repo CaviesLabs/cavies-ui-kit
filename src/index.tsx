@@ -13,6 +13,8 @@ import {
   Caption,
   Body,
   Input,
+  Icons,
+  Colors,
   toast,
 } from './browser';
 // import reportWebVitals from './reportWebVitals';
@@ -25,18 +27,72 @@ function App() {
   const notify = () => toast('Wow so easy!');
   return (
     <ThemeProvider>
-      <div style={{ width: '700px' }}>
+      <div style={{ width: '343px' }}>
         <Input
           // type="password"
           onValueChange={val => console.log(val)}
-          title="Username"
+          title="Enter email"
         />
-        <Input
+        {/* <Input
           size="small"
           onValueChange={val => console.log(val)}
-          title="Username"
+          title="Enter password"
+          type="password"
           style={{ marginTop: '20px' }}
+        /> */}
+        <Button
+          text="Continue"
+          type="submit"
+          containerStyle={{
+            marginTop: '24px',
+            width: '100%',
+            boxShadow: '4px 8px 24px rgb(115 92 247 / 24%)',
+          }}
+          onClick={() => notify()}
+          // loading={true}
         />
+        <Body
+          type="regular"
+          style={{ color: Colors.dark[80], textAlign: 'center' }}
+        >
+          OR
+        </Body>
+        <Button
+          text="Continue with google"
+          type="submit"
+          shape="secondary"
+          containerStyle={{
+            width: '100%',
+            color: Colors.black,
+            borderColor: Colors.dark[30],
+          }}
+          onClick={() => notify()}
+          icon={Icons.GoogleIcon}
+          wave={false}
+          // loading={true}
+        />
+        <Button
+          text="Continue with wallet"
+          type="submit"
+          shape="secondary"
+          containerStyle={{
+            marginTop: '12px',
+            width: '100%',
+            color: Colors.black,
+            borderColor: Colors.dark[30],
+          }}
+          onClick={() => notify()}
+          icon={Icons.WalletIcon}
+          wave={false}
+          // loading={true}
+        />
+        <Caption
+          type="regular"
+          style={{ textAlign: 'center', color: Colors.dark[60] }}
+        >
+          By continue, you agree to our Terms of Service <br /> and acknowledge
+          you've read our Privacy Policy
+        </Caption>
         <Title type="large">Hello world</Title>
         <Caption type="normal">This is a normal caption</Caption>
         <Caption type="regular">This is a regular caption</Caption>
@@ -51,44 +107,6 @@ function App() {
           infancy. Various versions have evolved over the years, sometimes by
           accident, sometimes on purpose (injected humour and the like).
         </Body>
-        <Button
-          text="Button"
-          type="submit"
-          shape="primary"
-          size="large"
-          containerStyle={{ width: '30%' }}
-          onClick={() => notify()}
-        />
-        <Button
-          text="Button"
-          type="submit"
-          shape="secondary"
-          size="medium"
-          containerStyle={{ width: '30%', marginTop: '20px' }}
-        />
-        <Button
-          text="Button"
-          type="submit"
-          shape="secondary"
-          size="small"
-          containerStyle={{ marginTop: '20px', width: '20%' }}
-          loading={true}
-        />
-        <Button
-          text="Sending transaction"
-          type="submit"
-          shape="primary"
-          size="small"
-          containerStyle={{ marginTop: '20px' }}
-          loading={true}
-        />
-        <Button
-          text="Button"
-          type="submit"
-          shape="secondary"
-          containerStyle={{ width: '30%', marginTop: '20px' }}
-          disabled
-        />
       </div>
     </ThemeProvider>
   );

@@ -7,6 +7,8 @@ import Close from '../assets/icons/16/close.svg';
 import EyeClose from '../assets/icons/16/eye-close.svg';
 import EyeOpen from '../assets/icons/16/eye-open.svg';
 import LoadingSpinnerIcon from '../assets/icons/16/loading.svg';
+import GoogleIcon from '../assets/icons/google.svg';
+import WalletIcon from '../assets/icons/wallet.svg';
 
 export {
   Close,
@@ -18,4 +20,6 @@ export {
   ArrowLeft,
   ArrowRight,
   LoadingSpinnerIcon,
+  GoogleIcon,
+  WalletIcon,
 };

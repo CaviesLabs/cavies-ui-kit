@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { FC, useRef } from 'react';
 import { StyledButton } from './button.styled';
 import { ButtonProps } from './types';
@@ -34,7 +35,7 @@ export const Button: FC<ButtonProps> = props => {
     const button = e.currentTarget;
     button.classList.remove('hold-mouse');
   };
-
+  console.log(props.shape);
   return (
     <StyledButton
       ref={buttonRef}
@@ -44,10 +45,11 @@ export const Button: FC<ButtonProps> = props => {
       className={props.className}
       disabled={props.disabled}
       type={props.type}
-      shape={props.shape || 'primary'}
+      shape={props.shape}
       style={props.containerStyle}
       size={props.size}
       loading={props.loading}
+      wave={props.wave}
     >
       {props.loading && (
         <LoadingSpinner
@@ -55,11 +57,16 @@ export const Button: FC<ButtonProps> = props => {
           height={18}
           style={{ marginRight: '5px' }}
           color={
-            props.shape === 'primary'
+            props.containerStyle?.color
+              ? props.containerStyle.color
+              : props.shape === 'primary'
               ? StyleColors.white
               : StyleColors.primary.purple
           }
         />
+      )}
+      {props.icon && (
+        <img src={props.icon} alt="cavies-ui-kit-image" className="leftIcon" />
       )}
       <span>{props.text}</span>
       <div id="circle" className="circle"></div>

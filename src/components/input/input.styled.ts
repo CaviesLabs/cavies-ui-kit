@@ -26,7 +26,7 @@ export const StyledInput = styled.div<StyledInputProps>`
   height: 48px;
   div.container {
     height: 100%;
-    width: 30%;
+    width: 100%;
     position: relative;
     overflow: hidden;
     border: 1px solid

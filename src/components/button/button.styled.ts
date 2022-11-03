@@ -51,6 +51,14 @@ const withShape = (props: StyledButtonProps) => {
 `;
 };
 
+const withHover = (props: StyledButtonProps) => {
+  if (props.wave === false) return;
+  return `
+    &:hover:after {
+      width: ${props.loading ? '0' : whenDisabled(props, '0%', '100%')};
+    };`;
+};
+
 /**
  * @dev Render styles following size of component
  * @dev Render styles for large size
@@ -121,13 +129,21 @@ export const StyledButton = styled.button<StyledButtonProps>`
   &:hover {
     color: ${props => !props.loading && !props.disabled && StyleColors.white};
   }
-  &:hover:after {
-    width: ${props =>
-      props.loading ? '0' : whenDisabled(props, '0%', '100%')};
-  }
 
+  /** Handle to render hover style following wave value */
+  ${withHover}
+
+  /** Handle to render style following shape value */
   ${withShape}
+
+  /** Handle to render style following size value */
   ${withSize}
+
+  .leftIcon {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+  }
 
   .circle {
     height: 25px;

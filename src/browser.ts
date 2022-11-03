@@ -23,6 +23,12 @@ export type {
 /** @dev Export global styles in styled-component format */
 export { GlobalStyle as StyledComponentGlobal } from './styles/global-styles';
 
+/** @dev Export UI-Kit colors pattern */
+export { StyleColors as Colors } from './styles/style-constants';
+
+/** @dev Export icon images */
+export * as Icons from './styles/icon-constants';
+
 /**
  * @dev Export all functions releated to theme provider
  * @description
@@ -51,7 +57,7 @@ export {
   Flip,
   Slide,
   Zoom,
-  Icons,
+  Icons as ToastIcons,
 } from './components/toast';
 export type { IconProps, CloseButtonProps } from './components/toast';
 export { toast } from './core';
