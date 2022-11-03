@@ -28,24 +28,13 @@ function App() {
   return (
     <ThemeProvider>
       <div style={{ width: '343px' }}>
-        <Input
-          // type="password"
-          onValueChange={val => console.log(val)}
-          title="Enter email"
-        />
-        {/* <Input
-          size="small"
-          onValueChange={val => console.log(val)}
-          title="Enter password"
-          type="password"
-          style={{ marginTop: '20px' }}
-        /> */}
+        <Input onValueChange={val => console.log(val)} title="Enter email" />
         <Button
           text="Continue"
           type="submit"
+          width="100%"
           containerStyle={{
             marginTop: '24px',
-            width: '100%',
             boxShadow: '4px 8px 24px rgb(115 92 247 / 24%)',
           }}
           onClick={() => notify()}
@@ -61,8 +50,8 @@ function App() {
           text="Continue with google"
           type="submit"
           shape="secondary"
+          width="100%"
           containerStyle={{
-            width: '100%',
             color: Colors.black,
             borderColor: Colors.dark[30],
           }}
@@ -75,6 +64,7 @@ function App() {
           text="Continue with wallet"
           type="submit"
           shape="secondary"
+          width="100%"
           containerStyle={{
             marginTop: '12px',
             width: '100%',

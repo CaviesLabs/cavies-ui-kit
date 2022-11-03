@@ -35,41 +35,49 @@ export const Button: FC<ButtonProps> = props => {
     const button = e.currentTarget;
     button.classList.remove('hold-mouse');
   };
-  console.log(props.shape);
+
   return (
     <StyledButton
-      ref={buttonRef}
-      onClick={e => !props.loading && props.onClick && props.onClick(e)}
-      onMouseDown={onMouseDown}
-      onMouseUp={onMouseUp}
-      className={props.className}
-      disabled={props.disabled}
-      type={props.type}
       shape={props.shape}
-      style={props.containerStyle}
       size={props.size}
       loading={props.loading}
       wave={props.wave}
+      style={{ width: props.width, height: props.height }}
     >
-      {props.loading && (
-        <LoadingSpinner
-          width={18}
-          height={18}
-          style={{ marginRight: '5px' }}
-          color={
-            props.containerStyle?.color
-              ? props.containerStyle.color
-              : props.shape === 'primary'
-              ? StyleColors.white
-              : StyleColors.primary.purple
-          }
-        />
-      )}
-      {props.icon && (
-        <img src={props.icon} alt="cavies-ui-kit-image" className="leftIcon" />
-      )}
-      <span>{props.text}</span>
-      <div id="circle" className="circle"></div>
+      <button
+        ref={buttonRef}
+        onClick={e => !props.loading && props.onClick && props.onClick(e)}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+        className={`b-mc ${props.className}`}
+        disabled={props.disabled}
+        type={props.type}
+        style={props.containerStyle}
+      >
+        {props.loading && (
+          <LoadingSpinner
+            width={18}
+            height={18}
+            style={{ marginRight: '5px' }}
+            color={
+              props.containerStyle?.color
+                ? props.containerStyle.color
+                : props.shape === 'primary'
+                ? StyleColors.white
+                : StyleColors.primary.purple
+            }
+          />
+        )}
+        {props.icon && (
+          <img
+            src={props.icon}
+            alt="cavies-ui-kit-image"
+            className="leftIcon"
+          />
+        )}
+        <span>{props.text}</span>
+        <div id="circle" className="circle"></div>
+      </button>
     </StyledButton>
   );
 };

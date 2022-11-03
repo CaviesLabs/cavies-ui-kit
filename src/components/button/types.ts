@@ -132,4 +132,16 @@ export interface ButtonProps {
    * the defaullt is true.
    */
   wave?: boolean | true;
+
+  /**
+   * @dev Width value of button.
+   * @param {string} Must be string because value can be % or px or em, etc.
+   */
+  width?: string;
+
+  /**
+   * @dev Height value of button.
+   * @param {string} Must be string because value can be % or px or em, etc.
+   */
+  height?: string;
 }
