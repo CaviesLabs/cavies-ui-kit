@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import { FC, useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import { StyledButton } from './button.styled';
 import { ButtonProps } from './types';
 import { LoadingSpinner } from '../loading-spinner/spinner.component';
@@ -8,6 +8,11 @@ import { StyleColors } from '../../styles/style-constants';
 export const Button: FC<ButtonProps> = props => {
   const buttonRef = useRef(null);
 
+  /**
+   * @dev The function to handle when user point mouse down from button.
+   * @param {React.MouseEventHandler<HTMLElement>} e.
+   * @returns {Function}.
+   */
   const onMouseDown = (e: React.MouseEvent<HTMLElement>) => {
     /** @dev Disable click event when task is processing (loading status) */
     if (props.loading) return;
@@ -42,6 +47,7 @@ export const Button: FC<ButtonProps> = props => {
       size={props.size}
       loading={props.loading}
       wave={props.wave}
+      theme={props.theme}
       style={{ width: props.width, height: props.height }}
     >
       <button
@@ -68,13 +74,16 @@ export const Button: FC<ButtonProps> = props => {
             }
           />
         )}
-        {props.icon && (
-          <img
-            src={props.icon}
-            alt="cavies-ui-kit-image"
-            className="leftIcon"
-          />
-        )}
+        {props.icon !== null &&
+          (typeof props.icon === 'string' ? (
+            <img
+              src={props.icon}
+              alt="cavies-ui-kit-image"
+              className="leftIcon"
+            />
+          ) : (
+            <div className="leftIconContainer">{props.icon}</div>
+          ))}
         <span>{props.text}</span>
         <div id="circle" className="circle"></div>
       </button>

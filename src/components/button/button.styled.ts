@@ -19,22 +19,34 @@ const whenDisabled = (
  * @returns style
  */
 const withShape = (props: StyledButtonProps) => {
+  console.log('button theme', props.theme);
+  if (props.theme && Object.keys(props.theme).length) {
+    return `
+      border: none;
+      color: ${props.theme.color};
+      background: ${props.disabled ? StyleColors.dark[40] : props.theme.backgroundColor
+      } !important;
+      &:after {
+        background: #ffffff33 !important;
+      };
+    `;
+  }
   const { shape } = props;
   if (shape === 'secondary') {
     return `
       border: 1px solid ${whenDisabled(
-        props,
-        StyleColors.dark[40],
-        StyleColors.primary.purple,
-      )};
+      props,
+      StyleColors.dark[40],
+      StyleColors.primary.purple,
+    )};
       color: ${whenDisabled(
-        props,
-        StyleColors.dark[40],
-        StyleColors.primary.purple,
-      )};
+      props,
+      StyleColors.dark[40],
+      StyleColors.primary.purple,
+    )};
       background: ${StyleColors.white} !important;
       &:after {
-        background: ${StyleColors.primary.purple} !important;
+        background: #ffffff33 !important;
       }
     `;
   }
@@ -42,15 +54,19 @@ const withShape = (props: StyledButtonProps) => {
   return `
     border: none;
     color: ${StyleColors.white};
-    background: ${
-      props.disabled ? StyleColors.dark[40] : StyleColors.primary.purple
+    background: ${props.disabled ? StyleColors.dark[40] : StyleColors.primary.purple
     } !important;
     &:after {
-      background: ${StyleColors.secondary.purple[50]} !important;
+      background: #ffffff33 !important;
     };
 `;
 };
 
+/**
+ * @dev Force disable wave effect when hover when wave is setted FALSE.
+ * @param {StyledButtonProps} props
+ * @returns {style}
+ */
 const withHover = (props: StyledButtonProps) => {
   if (props.wave === false) return;
   return `
@@ -109,7 +125,7 @@ export const StyledButton = styled.div<StyledButtonProps>`
     width: 100%;
     height: 100%;
     cursor: ${props =>
-      props.loading ? 'auto' : whenDisabled(props, 'auto', 'pointer')};
+    props.loading ? 'auto' : whenDisabled(props, 'auto', 'pointer')};
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -149,6 +165,13 @@ export const StyledButton = styled.div<StyledButtonProps>`
       width: 32px;
       height: 32px;
       margin-right: 12px;
+      position: relative;
+      z-index: 2;
+    }
+    .leftIconContainer {
+      margin-right: 12px;
+      position: relative;
+      z-index: 2;
     }
 
     .circle {

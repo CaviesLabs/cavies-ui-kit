@@ -48,6 +48,15 @@ export type StyledButtonProps = DetailedHTMLProps<
    * the defaullt is true.
    */
   wave?: boolean | true;
+
+  /**
+   * @dev Define theme.
+   * @param {Object}.
+   */
+  theme?: {
+    color: string;
+    backgroundColor: string;
+  };
 };
 
 /** @dev Export interface props of styled button component*/
@@ -123,7 +132,7 @@ export interface ButtonProps {
   /**
    * @dev Left icon to display in left side of the label.
    */
-  icon?: string;
+  icon?: string | ReactNode;
 
   /**
    * @dev
@@ -144,4 +153,13 @@ export interface ButtonProps {
    * @param {string} Must be string because value can be % or px or em, etc.
    */
   height?: string;
+
+  /**
+   * @dev Define theme.
+   * @param {Object}.
+   */
+  theme?: {
+    color: string;
+    backgroundColor: string;
+  };
 }
