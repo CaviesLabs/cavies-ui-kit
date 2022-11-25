@@ -19,7 +19,6 @@ const whenDisabled = (
  * @returns style
  */
 const withShape = (props: StyledButtonProps) => {
-  console.log('button theme', props.theme);
   if (props.theme && Object.keys(props.theme).length) {
     return `
       border: none;
@@ -43,10 +42,10 @@ const withShape = (props: StyledButtonProps) => {
       props,
       StyleColors.dark[40],
       StyleColors.primary.purple,
-    )};
+    )} !important;
       background: ${StyleColors.white} !important;
       &:after {
-        background: #ffffff33 !important;
+        // background: #ffffff33 !important;
       }
     `;
   }

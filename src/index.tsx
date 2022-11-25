@@ -60,6 +60,14 @@ function App() {
           text="Continue"
           type="submit"
           width="100%"
+          shape="secondary"
+          onClick={() => notify()}
+          // loading={true}
+        />
+        <Button
+          text="Continue"
+          type="submit"
+          width="100%"
           containerStyle={{
             marginTop: '24px',
             boxShadow: '4px 8px 24px rgb(115 92 247 / 24%)',
