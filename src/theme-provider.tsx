@@ -1,7 +1,6 @@
 import { createContext, FC, ReactNode } from 'react';
 import { GlobalStyle } from './styles/global-styles';
 import { ToastContainer } from './components/toast';
-import {} from './styles/css/main.css';
 
 /**
  * @dev Theme context states
