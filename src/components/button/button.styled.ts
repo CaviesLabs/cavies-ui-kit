@@ -121,6 +121,8 @@ export const StyledButton = styled.div<StyledButtonProps>`
   border: none;
   display: inline-block;
   .b-mc {
+    position: relative;
+    overflow: hidden;
     width: 100%;
     height: 100%;
     cursor: ${props =>

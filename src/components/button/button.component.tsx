@@ -74,7 +74,7 @@ export const Button: FC<ButtonProps> = props => {
             }
           />
         )}
-        {props.icon !== null &&
+        {props.icon &&
           (typeof props.icon === 'string' ? (
             <img
               src={props.icon}

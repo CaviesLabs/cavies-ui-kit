@@ -14,8 +14,8 @@ function ButtonComponent(props: ButtonProps) {
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Cavies-UIKit/Button',
-  component: Button,
+  title: 'Example/Button',
+  component: ButtonComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
   },

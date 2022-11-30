@@ -63,7 +63,7 @@ function SmallTextComponent(props: SmallTextProps & { text: string }) {
 
 /** @reference More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export */
 export default {
-  title: 'Cavies-UIKit/Typography',
+  title: 'Example/Typography',
   component: Title,
   argTypes: {
     backgroundColor: { control: 'color' },

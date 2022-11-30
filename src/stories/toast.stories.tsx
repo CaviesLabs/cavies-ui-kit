@@ -3,69 +3,48 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeProvider, Button, toast } from '../browser';
 import type { ButtonProps } from '../browser';
-import '../styles/css/main.css';
 
-/**
- * @dev Export tile componet
- * @param {props} Title props
- * @returns
- */
-function ButtonComponent(props: ButtonProps & { text: string }) {
+function ButtonComponent(props: ButtonProps) {
   return (
     <ThemeProvider>
-      <Button
-        {...props}
-        text="toastify"
-        size="xsmall"
-        containerStyle={{ width: '200px' }}
-      />
+      <Button {...props} />
     </ThemeProvider>
   );
 }
 
-/** @reference More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export */
+// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Cavies-UIKit/Toast',
+  title: 'Example/Notify',
   component: ButtonComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ButtonComponent>;
+} as ComponentMeta<typeof Button>;
 
-/**
- * @dev Define template for title components.
- * @reference More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
- * @param {args} Arguments present for component props.
- * @returns @param {template}
- */
-const ToastTemplate: ComponentStory<typeof ButtonComponent> = args => (
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+const Template: ComponentStory<typeof ButtonComponent> = args => (
   <ButtonComponent {...args} />
 );
 
-/** @reference More on args: https://storybook.js.org/docs/react/writing-stories/args */
-export const Default = ToastTemplate.bind({});
-Default.args = {
-  text: 'Large title',
-  onClick: () => toast('Primary toast'),
-};
-
-/** @reference More on args: https://storybook.js.org/docs/react/writing-stories/args */
-export const Info = ToastTemplate.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+export const Info = Template.bind({});
 Info.args = {
-  text: 'Large title',
-  onClick: () => toast.info('Info toast'),
+  text: 'Push a info',
+  onClick: () => toast.info('Your info updated!'),
 };
 
-/** @reference More on args: https://storybook.js.org/docs/react/writing-stories/args */
-export const Warning = ToastTemplate.bind({});
+export const Warning = Template.bind({});
 Warning.args = {
-  text: 'Large title',
-  onClick: () => toast.warning('Info toast'),
+  text: 'Push a warning',
+  onClick: () => {
+    toast.warn('Transaction risk!');
+  },
 };
 
-/** @reference More on args: https://storybook.js.org/docs/react/writing-stories/args */
-export const Error = ToastTemplate.bind({});
+export const Error = Template.bind({});
 Error.args = {
-  text: 'Large title',
-  onClick: () => toast.error('Info toast'),
+  text: 'Push a error',
+  onClick: () => {
+    toast.error('Transaction failed!');
+  },
 };

@@ -55,8 +55,9 @@
     "release": "standard-version",
     "publish:npm": "yarn run create:npm-package && yarn publish .cra-template-rb --non-interactive",
     "gen-dts": "tsc -p tsconfig.library.json",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -106,6 +107,7 @@
     "web-vitals": "2.1.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.5",
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
     "@rollup/plugin-commonjs": "23.0.2",
@@ -117,7 +119,6 @@
     "@storybook/addon-links": "^6.5.13",
     "@storybook/builder-webpack5": "^6.5.13",
     "@storybook/manager-webpack5": "^6.5.13",
-    "@storybook/node-logger": "^6.5.13",
     "@storybook/react": "^6.5.13",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "5.16.5",
@@ -136,6 +137,7 @@
     "@types/webpack": "^5.28.0",
     "@types/webpack-env": "^1.18.0",
     "@webpack-cli/generators": "2.5.0",
+    "babel-loader": "^8.3.0",
     "chalk": "4.1.2",
     "craco-plugin-scoped-css": "1.1.1",
     "cross-env": "7.0.3",
@@ -145,7 +147,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "gh-pages": "4.0.0",
     "git-branch-is": "4.0.0",
-    "husky": "8.0.1",
+    "husky": "^8.0.0",
     "i18next-scanner": "4.0.0",
     "inquirer": "7.3.3",
     "inquirer-directory": "2.2.0",
@@ -189,14 +191,16 @@
     ]
   },
   "eslintConfig": {
-    "overrides": [{
-      "files": [
-        "**/*.stories.*"
-      ],
-      "rules": {
-        "import/no-anonymous-default-export": "off"
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
       }
-    }]
+    ]
   },
   "peerDependencies": {
     "react": "^16.8.0",

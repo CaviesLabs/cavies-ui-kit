@@ -14,8 +14,8 @@ function InputComponent(props: InputProps) {
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Cavies-UIKit/InputField',
-  component: Input,
+  title: 'Example/InputField',
+  component: InputComponent,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
