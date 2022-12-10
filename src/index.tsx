@@ -87,7 +87,7 @@ function App() {
             boxShadow: '4px 8px 24px rgb(115 92 247 / 24%)',
           }}
           onClick={() => notify()}
-          // loading={true}
+          loading={true}
         />
         <Body
           type="regular"

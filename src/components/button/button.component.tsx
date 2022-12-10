@@ -68,7 +68,7 @@ export const Button: FC<ButtonProps> = props => {
             color={
               props.containerStyle?.color
                 ? props.containerStyle.color
-                : props.shape === 'primary'
+                : !props.shape
                 ? StyleColors.white
                 : StyleColors.primary.purple
             }
