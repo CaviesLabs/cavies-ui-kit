@@ -150,7 +150,9 @@ export const StyledButton = styled.div<StyledButtonProps>`
       border-radius: 100px;
     }
     &:hover {
-      color: ${props => !props.loading && !props.disabled && StyleColors.white};
+      color: ${props =>
+    props?.theme?.hoverColor ||
+    (!props.loading && !props.disabled && StyleColors.white)};
     }
 
     /** Handle to render hover style following wave value */

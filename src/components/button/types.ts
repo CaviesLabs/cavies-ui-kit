@@ -54,8 +54,9 @@ export type StyledButtonProps = DetailedHTMLProps<
    * @param {Object}.
    */
   theme?: {
-    color: string;
-    backgroundColor: string;
+    color?: string;
+    backgroundColor?: string;
+    hoverColor?: string;
   };
 };
 
@@ -159,7 +160,8 @@ export interface ButtonProps {
    * @param {Object}.
    */
   theme?: {
-    color: string;
-    backgroundColor: string;
+    color?: string;
+    backgroundColor?: string;
+    hoverColor?: string;
   };
 }

@@ -38,6 +38,20 @@ function App() {
           }}
           onClick={() => notify()}
           theme={{
+            color: '#7886A0',
+            hoverColor: '#798aaa',
+            backgroundColor: 'transparent',
+          }}
+        />
+        <Button
+          text="Continue"
+          type="submit"
+          containerStyle={{
+            marginTop: '24px',
+            boxShadow: '4px 8px 24px rgb(115 92 247 / 24%)',
+          }}
+          onClick={() => notify()}
+          theme={{
             backgroundColor: '#41ADD1',
             color: '#ffff',
           }}
