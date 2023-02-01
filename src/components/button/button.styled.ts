@@ -146,7 +146,7 @@ export const StyledButton = styled.div<StyledButtonProps>`
       left: 0;
       width: 0;
       height: 100%;
-      transition: all 0.35s;
+      transition: all 0.35s !important;
       border-radius: 100px;
     }
     &:hover {
