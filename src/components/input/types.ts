@@ -1,4 +1,4 @@
-import { ChangeEvent, CSSProperties } from 'react';
+import { ChangeEvent, CSSProperties, ReactNode } from 'react';
 
 /** @dev Input type */
 export type InputType = 'number' | 'text' | 'password';
@@ -19,6 +19,10 @@ export interface InputProps {
   style?: CSSProperties;
   onValueChange?: (value: string) => void;
   onChange?: (ref: Element | ChangeEvent<HTMLInputElement>) => void;
+  /**
+   * @dev Left icon to display in left side of the label.
+   */
+  icon?: string | ReactNode;
 }
 
 /**

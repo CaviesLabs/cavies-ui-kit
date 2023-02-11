@@ -43,8 +43,8 @@ export const StyledInput = styled.div<StyledInputProps>`
       height: 48px;
       border: none;
       padding: 0;
-      padding-left: 16px;
       padding-right: ${props => (props.type === 'password' ? '40px' : '16px')};
+      padding-left: ${props => (props.icon !== undefined ? '40px' : '16px')};
       font-family: hk-font-regular;
       padding-top: 3px;
     }
@@ -78,7 +78,7 @@ export const StyledInput = styled.div<StyledInputProps>`
     &:focus-within {
       border: 1px solid
         ${props =>
-          props.error ? StyleColors.red[50] : StyleColors.primary.purple};
+    props.error ? StyleColors.red[50] : StyleColors.primary.purple};
     }
     input:focus {
       outline: none;
@@ -93,9 +93,25 @@ export const StyledInput = styled.div<StyledInputProps>`
       transform: translateX(0%);
     }
     ${facility}
-    .left-icon {
+    .right-icon {
       position: absolute;
       right: -20px;
+      -webkit-transform: translate(-70%, -70%);
+      transform: translate(-70%, -70%);
+      position: absolute;
+      top: 67%;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .left-icon {
+      position: absolute;
+      left: 26px;
       -webkit-transform: translate(-70%, -70%);
       transform: translate(-70%, -70%);
       position: absolute;

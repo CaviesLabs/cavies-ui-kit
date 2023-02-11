@@ -15,6 +15,8 @@ export const Input: FC<InputProps> = props => {
     error,
     size,
     style,
+    placeholder,
+    icon,
     onValueChange,
     onChange,
   } = props;
@@ -52,6 +54,8 @@ export const Input: FC<InputProps> = props => {
       error={error}
       size={size}
       style={style}
+      icon={icon}
+      type={type}
     >
       <div className="container">
         <input
@@ -65,11 +69,12 @@ export const Input: FC<InputProps> = props => {
             onChange && onChange(e);
           }}
           autoComplete="off"
+          placeholder={placeholder}
         />
         {type === 'password' && (
           <button
             onClick={toggleDisplayPassword}
-            className="left-icon"
+            className="right-icon"
             type="button"
           >
             <img
@@ -78,6 +83,13 @@ export const Input: FC<InputProps> = props => {
             />
           </button>
         )}
+        {icon &&
+          (typeof icon === 'string' ? (
+            // eslint-disable-next-line jsx-a11y/img-redundant-alt
+            <img src={icon} alt="cavies-ui-kit-image" className="left-icon" />
+          ) : (
+            <div className="left-icon">{icon}</div>
+          ))}
         <label htmlFor="text" className="label-name">
           <span className="content-name">{title}</span>
         </label>
