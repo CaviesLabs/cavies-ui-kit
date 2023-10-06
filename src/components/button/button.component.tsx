@@ -43,22 +43,21 @@ export const Button: FC<ButtonProps> = props => {
 
   return (
     <StyledButton
-      shape={props.shape}
-      size={props.size}
-      loading={props.loading}
       wave={props.wave}
+      size={props.size}
+      shape={props.shape}
       theme={props.theme}
       style={{ width: props.width, height: props.height }}
     >
       <button
         ref={buttonRef}
-        onClick={e => !props.loading && props.onClick && props.onClick(e)}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        className={`b-mc ${props.className}`}
-        disabled={props.disabled}
         type={props.type}
+        onMouseUp={onMouseUp}
+        onMouseDown={onMouseDown}
+        disabled={props.disabled}
         style={props.containerStyle}
+        className={`b-mc ${props.className}`}
+        onClick={e => !props.loading && props.onClick && props.onClick(e)}
       >
         {props.loading && (
           <LoadingSpinner
